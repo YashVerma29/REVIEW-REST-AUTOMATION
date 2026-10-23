@@ -182,6 +182,10 @@ window.appNavigate = function(path, pushState = true) {
 
   // Dashboard Shell Routes
   if (route.type === 'dashboard') {
+    if (!currentToken) {
+      window.appNavigate('/login', pushState);
+      return;
+    }
     if (landingView) landingView.style.display = 'none';
     if (authView) authView.style.display = 'none';
     if (dashboardShell) dashboardShell.style.display = 'flex';
