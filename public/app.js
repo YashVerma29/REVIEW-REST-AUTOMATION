@@ -4398,9 +4398,16 @@ function initForms() {
           localStorage.setItem('r2r_token', res.token);
           currentToken = res.token;
           currentUser = res.user;
+          currentOrg = res.organization;
+
+          const topbarName = document.getElementById('topbarUserName');
+          if (topbarName) topbarName.textContent = currentUser.full_name || currentUser.email;
+          const orgNameEl = document.getElementById('sidebarOrgName');
+          if (orgNameEl && currentOrg) orgNameEl.textContent = currentOrg.name;
+
           showToast(`Welcome back, ${currentUser.full_name || 'Chef'}!`);
-          await checkAuthAndBootstrap();
           appNavigate('/dashboard');
+          checkAuthAndBootstrap();
         }
       } catch (err) {
         if (alertBox) {
@@ -4426,6 +4433,7 @@ function initForms() {
   if (formSignup) {
     formSignup.addEventListener('submit', async (e) => {
       e.preventDefault();
+      const submitBtn = document.getElementById('btnSignupSubmit');
       const full_name = document.getElementById('signupFullName')?.value;
       const organization_name = document.getElementById('signupOrgName')?.value;
       const email = document.getElementById('signupEmail')?.value;
@@ -4435,6 +4443,15 @@ function initForms() {
       const outlet_city = document.getElementById('signupOutletCity')?.value?.trim() || '';
       const alertBox = document.getElementById('signupAlert');
 
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'Creating Account... <span class="spinner" style="display:inline-block; width:12px; height:12px; border:2px solid #fff; border-top-color:transparent; border-radius:50%; animation:spin 0.6s linear infinite; vertical-align:middle; margin-left:6px;"></span>';
+      }
+      if (alertBox) {
+        alertBox.className = 'auth-alert';
+        alertBox.textContent = '';
+      }
+
       try {
         const res = await api('/api/auth/signup', {
           method: 'POST',
@@ -4442,6 +4459,10 @@ function initForms() {
         });
 
         if (res.error) {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Create Restaurant Account →';
+          }
           if (alertBox) {
             alertBox.className = 'auth-alert error';
             alertBox.textContent = res.error;
@@ -4453,14 +4474,26 @@ function initForms() {
           localStorage.setItem('r2r_token', res.token);
           currentToken = res.token;
           currentUser = res.user;
-          showToast(`Account created for ${organization_name}!`);
-          await checkAuthAndBootstrap();
+          currentOrg = res.organization;
+
+          const topbarName = document.getElementById('topbarUserName');
+          if (topbarName) topbarName.textContent = currentUser.full_name || currentUser.email;
+          const orgNameEl = document.getElementById('sidebarOrgName');
+          if (orgNameEl && currentOrg) orgNameEl.textContent = currentOrg.name;
+
+          showToast(`Account created for ${organization_name}! Welcome!`);
+
+          // Go directly inside the dashboard immediately without blocking
           appNavigate('/dashboard');
-          if (typeof openOnboardingWizard === 'function') {
-            openOnboardingWizard(1);
-          }
+
+          // Bootstrap dashboard data in background
+          checkAuthAndBootstrap();
         }
       } catch (err) {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Create Restaurant Account →';
+        }
         if (alertBox) {
           alertBox.className = 'auth-alert error';
           const msg = err.message || 'Failed to register account.';
