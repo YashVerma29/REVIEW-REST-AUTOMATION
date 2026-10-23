@@ -1,0 +1,20 @@
+{
+  "name": "restaurant-review-to-revenue",
+  "version": "1.0.0",
+  "description": "Restaurant Review-to-Revenue AI Agent SaaS",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch --env-file=.env server.js",
+    "test": "node --env-file=.env test.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "csv-parse": "^5.6.0",
+    "express": "^4.21.2",
+    "multer": "^1.4.5-lts.1",
+    "qrcode": "^1.5.4",
+    "viasocket-apps": "^0.7.0"
+  }
+}

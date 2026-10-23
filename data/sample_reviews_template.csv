@@ -1,0 +1,3 @@
+review_id,restaurant_name,outlet_name,review_source,review_date,star_rating,review_text,review_url,menu_item,order_type,owner_response_status
+REV-TEMPLATE-001,Royal Spice Kitchen,Downtown Flagship,Google,2026-10-15,5,"The butter chicken and garlic naan were extraordinary! Outstanding service by Rahul.",https://maps.google.com/review/1,Butter Chicken,Dine-in,none
+REV-TEMPLATE-002,Royal Spice Kitchen,Cyber City Cloud Kitchen,Zomato,2026-10-16,2,"Delivery took 75 minutes and the biryani arrived completely cold. Gravy was leaking.",https://zomato.com/review/2,Dum Biryani,Delivery,none

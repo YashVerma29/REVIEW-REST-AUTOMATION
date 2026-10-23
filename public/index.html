@@ -1,0 +1,2531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReviewPilot AI | Turn Every Customer Review Into Restaurant Growth</title>
+  <meta name="description" content="AI-powered restaurant review intelligence platform. Ingest customer feedback, diagnose kitchen and packaging problems, generate empathetic responses, and drive revenue growth.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/app.css?v=2.1.0">
+  <script id="viasocket-connect-script" src="https://flow.viasocket.com/connect.js"></script>
+</head>
+<body>
+
+  <!-- ========================================================================= -->
+  <!-- 1. PUBLIC LANDING PAGE VIEW (Route: /)                                    -->
+  <!-- ========================================================================= -->
+  <div id="landingView" class="landing-view">
+    <!-- Navbar -->
+    <nav class="landing-nav">
+      <div class="landing-container nav-wrapper">
+        <a href="/" class="nav-brand" data-route="/">
+          <div class="nav-logo-box">RP</div>
+          <span class="nav-brand-name">ReviewPilot <span style="color:var(--emerald-primary);">AI</span></span>
+        </a>
+
+        <div class="nav-links">
+          <a href="#features" class="nav-link">Features</a>
+          <a href="#how-it-works" class="nav-link">How It Works</a>
+          <a href="#use-cases" class="nav-link">Use Cases</a>
+          <a href="#pricing" class="nav-link">Pricing</a>
+          <a href="#faqs" class="nav-link">FAQs</a>
+        </div>
+
+        <div class="nav-actions">
+          <a href="/login" class="btn btn-ghost btn-sm" data-route="/login">Sign In</a>
+          <a href="/dashboard" class="btn btn-outline btn-sm" data-route="/dashboard">Live Demo</a>
+          <a href="/signup" class="btn btn-primary btn-sm" data-route="/signup">Start Free Trial</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="landing-container">
+        <div class="hero-pill">
+          <span class="pulse-dot"></span>
+          <span>AI-Powered Restaurant Review Intelligence</span>
+        </div>
+        <h1 class="hero-title">Turn Every Customer Review <span>Into Restaurant Growth.</span></h1>
+        <p class="hero-sub">
+          Stop letting unresolved kitchen delays, food temperature slips, and packaging leaks erode guest loyalty.
+          ReviewPilot AI unifies feedback across Google, delivery apps, and POS, diagnoses root-cause operational problems,
+          and prescribes verified kitchen actions.
+        </p>
+        <div class="hero-cta-group">
+          <a href="/signup" class="btn btn-primary btn-lg" data-route="/signup">Start Free Trial →</a>
+          <a href="/dashboard" class="btn btn-secondary btn-lg" data-route="/dashboard">Explore Live Dashboard</a>
+          <a href="#how-it-works" class="btn btn-outline btn-lg">See How It Works</a>
+        </div>
+
+        <!-- Metrics Strip -->
+        <div class="metrics-strip">
+          <div class="metric-item">
+            <div class="metric-number">4.8★</div>
+            <div class="metric-label">Avg. Client Rating Target</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-number">82%</div>
+            <div class="metric-label">Faster Negative Review Response</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-number">₹3.4L</div>
+            <div class="metric-label">Avg. Monthly Revenue Protected</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-number">2,400+</div>
+            <div class="metric-label">Outlets Monitored via viaSocket</div>
+          </div>
+        </div>
+
+        <!-- Clearly Labeled Illustrative Dashboard Preview -->
+        <div class="preview-showcase-box">
+          <div class="preview-badge-banner">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="preview-tag-pill">Illustrative Preview</span>
+              <span style="font-weight:600;">Interactive Dashboard Simulation — Not Live Restaurant Metrics</span>
+            </div>
+            <span style="font-size:11px; opacity:0.8;">Sample Organization: Royal Spice Kitchen</span>
+          </div>
+
+          <div class="preview-window-body">
+            <!-- Illustrative KPI Mini-row -->
+            <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:12px; margin-bottom:16px;">
+              <div class="preview-mock-card">
+                <div style="font-size:11px; color:var(--text-muted); font-weight:600;">Sample Rating</div>
+                <div style="font-size:22px; font-weight:800; color:var(--text-primary); margin:4px 0;">4.6 ★</div>
+                <div style="font-size:11px; color:var(--emerald-primary); font-weight:600;">↑ +0.4 Post-Intervention</div>
+              </div>
+              <div class="preview-mock-card">
+                <div style="font-size:11px; color:var(--text-muted); font-weight:600;">Feedback Sentiment</div>
+                <div style="font-size:22px; font-weight:800; color:var(--text-primary); margin:4px 0;">85% Pos</div>
+                <div style="font-size:11px; color:var(--emerald-primary); font-weight:600;">152 Reviews Analyzed</div>
+              </div>
+              <div class="preview-mock-card">
+                <div style="font-size:11px; color:var(--text-muted); font-weight:600;">Top Critical Issue</div>
+                <div style="font-size:22px; font-weight:800; color:var(--rose-primary); margin:4px 0;">Packaging</div>
+                <div style="font-size:11px; color:var(--rose-primary); font-weight:600;">Spill alert flagged on Curry</div>
+              </div>
+              <div class="preview-mock-card">
+                <div style="font-size:11px; color:var(--text-muted); font-weight:600;">Revenue at Risk</div>
+                <div style="font-size:22px; font-weight:800; color:var(--amber-primary); margin:4px 0;">₹12,400</div>
+                <div style="font-size:11px; color:var(--text-muted); font-weight:500;">94% Recovered via SOPs</div>
+              </div>
+            </div>
+
+            <!-- Illustrative Preview Content Split -->
+            <div class="preview-mock-grid">
+              <div class="preview-mock-card">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                  <strong style="font-size:13px;">AI Root-Cause Diagnosis (Illustrative Demonstration)</strong>
+                  <span class="badge negative">Urgent Priority 88/100</span>
+                </div>
+                <div style="font-size:12px; color:var(--text-secondary); line-height:1.5; margin-bottom:10px;">
+                  <strong>Customer Verbatim:</strong> "Ordered Butter Chicken and Dal Makhani. The curry container cracked and spilled all over the naan. Delivery was also 40 mins late."
+                </div>
+                <div style="padding:10px; background:var(--bg-subtle); border-radius:var(--radius-sm); font-size:12px; margin-bottom:10px;">
+                  <div style="color:var(--emerald-primary); font-weight:700; margin-bottom:3px;">✓ AI Formulated Root-Cause Hypothesis:</div>
+                  <div style="color:var(--text-secondary);">Single-wall 500ml lid fails under heat pressure during peak rush delivery runs >25 minutes.</div>
+                </div>
+                <div style="display:flex; gap:8px;">
+                  <span class="badge neutral">Category: Packaging</span>
+                  <span class="badge neutral">Affected Dish: Butter Chicken</span>
+                  <span class="badge positive">Assigned to: Head Chef / Dispatch</span>
+                </div>
+              </div>
+
+              <div class="preview-mock-card">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                  <strong style="font-size:13px;">AI Empathetic Response Draft</strong>
+                  <span class="badge positive">Legal Safeguard Active</span>
+                </div>
+                <div style="font-size:11.5px; color:var(--text-muted); font-style:italic; line-height:1.5; padding:8px; background:#fafaf9; border-radius:var(--radius-sm); border:1px solid var(--border-subtle); margin-bottom:10px;">
+                  "Dear Customer, thank you for bringing this to our attention. Packaging integrity during transit is vital, and we clearly fell short. We have audited our dispatch container seals to prevent leaks. Please contact us directly so we can ensure your next meal is flawless."
+                </div>
+                <div style="display:flex; justify-content:flex-end; gap:6px;">
+                  <button class="btn btn-xs btn-outline" onclick="alert('Illustrative preview: Response copied to clipboard simulation.')">Copy</button>
+                  <button class="btn btn-xs btn-primary" onclick="alert('Illustrative preview: Reply marked approved.')">Approve Draft</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section (6 Pillars) -->
+    <section id="features" class="landing-container" style="padding-bottom: 60px;">
+      <div class="section-header">
+        <div class="section-tag">Core Capabilities</div>
+        <h2 class="section-title">Everything You Need to Turn Reviews into Revenue</h2>
+        <p class="section-desc">Designed specifically for restaurant operators who need actionable kitchen answers, not just vanity review scores.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon-box">📥</div>
+          <h3 class="feature-card-title">Multi-Platform Review Collection</h3>
+          <p class="feature-card-desc">Seamlessly ingest reviews from Google Business Profile, Google Sheets, Square POS, and bulk CSV files with SHA-256 fingerprint deduplication.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">🧠</div>
+          <h3 class="feature-card-title">AI Sentiment & Entity Analysis</h3>
+          <p class="feature-card-desc">Classify reviews into 17 restaurant categories, extract mentioned dishes, detect Hinglish vernacular, and separate confirmed facts from inferences.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">🔍</div>
+          <h3 class="feature-card-title">Complaint Clustering & Priority</h3>
+          <p class="feature-card-desc">Group isolated complaints into statistically ranked clusters with 0–100 Smart Priority Scores that measure drag, severity, and customer sentiment shift.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">✍️</div>
+          <h3 class="feature-card-title">AI Response Drafts with Safeguards</h3>
+          <p class="feature-card-desc">Generate empathetic, personalized customer replies instantly. Strict non-liability guardrails prevent unauthorized refunds or legal admissions.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">📋</div>
+          <h3 class="feature-card-title">Action Center & Kitchen SOPs</h3>
+          <p class="feature-card-desc">Convert recurring complaints into verifiable corrective playbooks. Assign tasks to kitchen managers and track verification checklists.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">📊</div>
+          <h3 class="feature-card-title">Closed-Loop Revenue Telemetry</h3>
+          <p class="feature-card-desc">Measure pre- and post-intervention rating shifts to verify whether packaging changes or recipe adjustments actually eliminated customer complaints.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="landing-container" style="padding-bottom: 60px;">
+      <div class="section-header">
+        <div class="section-tag">The Workflow</div>
+        <h2 class="section-title">How ReviewPilot AI Drives Results</h2>
+        <p class="section-desc">Four simple steps from customer feedback to verified kitchen improvement.</p>
+      </div>
+
+      <div class="how-it-works-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3 class="step-title">Create Restaurant</h3>
+          <p class="step-desc">Set up your brand and add physical outlets, cloud kitchens, or franchises with custom timezones and manager assignments.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3 class="step-title">Collect Reviews</h3>
+          <p class="step-desc">Connect Google Business Profile or Google Sheets via verified viaSocket connectors, or drag-and-drop CSV exports.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3 class="step-title">Analyze with AI</h3>
+          <p class="step-desc">Our viaSocket AI agent identifies dishes, pinpoints hygiene or packaging issues, and generates ranked root-cause hypotheses.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <h3 class="step-title">Take Action & Measure</h3>
+          <p class="step-desc">Execute kitchen SOP checklists, approve response drafts, and track post-intervention rating improvements.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section id="use-cases" class="landing-container" style="padding-bottom: 60px;">
+      <div class="section-header">
+        <div class="section-tag">Tailored Solutions</div>
+        <h2 class="section-title">Engineered for Every Restaurant Model</h2>
+        <p class="section-desc">Whether you operate a neighborhood cafe or a 50-location franchise network, ReviewPilot AI adapts to your operational scale.</p>
+      </div>
+
+      <div class="use-cases-grid">
+        <div class="use-case-card">
+          <span class="use-case-badge">Independent Cafes & Bakeries</span>
+          <h3 class="use-case-title">Morning Rush & Beverage Pacing</h3>
+          <p class="use-case-desc">Monitor barista service times, pastry freshness feedback, and seating cleanliness so morning regulars stay loyal.</p>
+          <div class="use-case-metric">Target: Zero unaddressed wait-time complaints</div>
+        </div>
+
+        <div class="use-case-card">
+          <span class="use-case-badge">Cloud Kitchens & Delivery</span>
+          <h3 class="use-case-title">Packaging & Temperature Integrity</h3>
+          <p class="use-case-desc">Detect container cracks, transit oil leaks, and cold food complaints early before delivery algorithms drop your restaurant ranking.</p>
+          <div class="use-case-metric">Target: 95% reduction in spill incidents</div>
+        </div>
+
+        <div class="use-case-card">
+          <span class="use-case-badge">Fine Dining Establishments</span>
+          <h3 class="use-case-title">Hospitality & Culinary Precision</h3>
+          <p class="use-case-desc">Maintain 5-star reservation pacing, table hospitality standards, and dish seasoning consistency with deep sentiment analytics.</p>
+          <div class="use-case-metric">Target: 4.8★ rating consistency</div>
+        </div>
+
+        <div class="use-case-card">
+          <span class="use-case-badge">Fast Casual & QSR</span>
+          <h3 class="use-case-title">Order Accuracy & Speed of Service</h3>
+          <p class="use-case-desc">Catch missing sides, sauces, and order assembly mistakes across kitchen staff before they snowball into negative brand trends.</p>
+          <div class="use-case-metric">Target: 99.2% order accuracy</div>
+        </div>
+
+        <div class="use-case-card">
+          <span class="use-case-badge">Multi-Outlet Restaurant Chains</span>
+          <h3 class="use-case-title">Cross-Location Benchmarking</h3>
+          <p class="use-case-desc">Compare hygiene incident rates, packaging performance, and manager response velocity across all company-owned and franchise branches.</p>
+          <div class="use-case-metric">Target: Brand-wide SOP standardization</div>
+        </div>
+
+        <div class="use-case-card" style="background:var(--emerald-subtle); border-color:var(--emerald-border);">
+          <span class="use-case-badge" style="background:#059669; color:#fff;">Executive Owners</span>
+          <h3 class="use-case-title">Revenue-at-Risk Protection</h3>
+          <p class="use-case-desc">Link actual POS dish sales with customer complaints to instantly calculate how much monthly revenue is threatened by recipe or service defects.</p>
+          <div class="use-case-metric" style="color:var(--emerald-hover);">Protect high-margin hero dishes</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proposed Pricing Section -->
+    <section id="pricing" class="landing-container" style="padding-bottom: 60px;">
+      <div class="section-header">
+        <div class="section-tag">Proposed SaaS Tiers</div>
+        <h2 class="section-title">Transparent Pricing for Growing Restaurants</h2>
+        <p class="section-desc">Choose the plan that fits your current location footprint. Upgrade anytime as your brand expands.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Starter Plan -->
+        <div class="pricing-card">
+          <h3 class="pricing-plan-name">Starter</h3>
+          <p class="pricing-plan-desc">For single-location independent restaurants & cozy cafes.</p>
+          <div class="pricing-price">₹1,999 <span>/ location / mo</span></div>
+          <div class="pricing-currency-note">~$29 USD / month (Billed monthly)</div>
+          <ul class="pricing-features-list">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> 1 Physical Restaurant Location</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Up to 500 Reviews / month</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> AI Sentiment & Dish Extraction</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> CSV Data Ingestion & Deduplication</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Email Weekly Operational Briefs</li>
+          </ul>
+          <a href="/signup" class="btn btn-outline" data-route="/signup">Choose Starter Plan</a>
+          <div class="pricing-disclaimer">*Proposed model; payment processing is not currently active.</div>
+        </div>
+
+        <!-- Growth Plan (Featured) -->
+        <div class="pricing-card featured">
+          <div class="featured-pill">Most Popular</div>
+          <h3 class="pricing-plan-name">Growth</h3>
+          <p class="pricing-plan-desc">For busy dining rooms, cloud kitchens, and emerging multi-unit brands.</p>
+          <div class="pricing-price">₹4,999 <span>/ 3 locations / mo</span></div>
+          <div class="pricing-currency-note">~$69 USD / month (Billed monthly)</div>
+          <ul class="pricing-features-list">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Up to 3 Restaurant Locations</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Up to 2,500 Reviews / month</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Root-Cause Clustering & Priority Scoring</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> viaSocket Connectors (Google, Slack, Sheets)</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> AI Response Drafts with Non-Liability Guardrails</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Kitchen Action Center & Verification Checklists</li>
+          </ul>
+          <a href="/signup" class="btn btn-primary" data-route="/signup">Start Free Growth Trial</a>
+          <div class="pricing-disclaimer">*Proposed model; payment processing is not currently active.</div>
+        </div>
+
+        <!-- Enterprise Plan -->
+        <div class="pricing-card">
+          <h3 class="pricing-plan-name">Enterprise</h3>
+          <p class="pricing-plan-desc">For multi-city chains, regional franchises, and hospitality groups.</p>
+          <div class="pricing-price">Custom <span>Enterprise Quote</span></div>
+          <div class="pricing-currency-note">Tailored volume & SLA commitments</div>
+          <ul class="pricing-features-list">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Unlimited Restaurant Outlets & Brands</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Unlimited Review Processing Volume</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Custom POS & Square API Synchronization</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Advanced Role-Based Access Control (RBAC)</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Dedicated Account Architect & Custom SOP Templates</li>
+          </ul>
+          <a href="/signup" class="btn btn-outline" data-route="/signup">Contact Enterprise Sales</a>
+          <div class="pricing-disclaimer">*Proposed model; payment processing is not currently active.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQs Section -->
+    <section id="faqs" class="landing-container" style="padding-bottom: 80px;">
+      <div class="section-header">
+        <div class="section-tag">Common Questions</div>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="faqs-container">
+        <div class="faq-item">
+          <h4 class="faq-question">How does ReviewPilot AI connect to our Google Business reviews?</h4>
+          <p class="faq-answer">ReviewPilot AI utilizes official viaSocket Connect integration. You click 'Connect' in the dashboard, log in with your Google account, and your reviews sync automatically. Your credentials remain securely managed and are never stored on client devices.</p>
+        </div>
+
+        <div class="faq-item">
+          <h4 class="faq-question">Will the AI response generator admit fault or promise free meals?</h4>
+          <p class="faq-answer">No. ReviewPilot AI has strict non-liability safeguards hardcoded into its prompts and output validators. It crafts empathetic, professional responses without admitting legal liability, promising refunds, or making unauthorized financial commitments.</p>
+        </div>
+
+        <div class="faq-item">
+          <h4 class="faq-question">How does ReviewPilot AI protect tenant data between restaurant owners?</h4>
+          <p class="faq-answer">Data isolation is enforced at both the API and database levels. Every query filters strictly by <code>organization_id</code>. Tenant A can never view reviews, tasks, or outlet data belonging to Tenant B.</p>
+        </div>
+
+        <div class="faq-item">
+          <h4 class="faq-question">Can we import review exports from Zomato, Swiggy, or our POS?</h4>
+          <p class="faq-answer">Yes. The platform includes an intelligent CSV import engine with custom column mapping. You can upload any standard spreadsheet export, map your columns, and ReviewPilot AI will validate and analyze each row.</p>
+        </div>
+
+        <div class="faq-item">
+          <h4 class="faq-question">Does the AI understand bilingual reviews (e.g., Hinglish or colloquial feedback)?</h4>
+          <p class="faq-answer">Yes. ReviewPilot AI detects colloquial phrases (e.g., <em>"khana thanda tha"</em>, <em>"poore bag me tel beh gaya"</em>), maps them to standard English operational categories, and alerts your kitchen in real time.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Landing Footer -->
+    <footer class="landing-footer">
+      <div class="landing-container">
+        <div class="footer-grid">
+          <div>
+            <div class="footer-brand-title">ReviewPilot AI</div>
+            <p class="footer-brand-desc">Turn Every Customer Review Into Restaurant Growth. Multi-tenant review intelligence and kitchen operational excellence.</p>
+            <div style="margin-top:14px; font-size:11.5px; color:#64748b;">Powered by verified viaSocket skill integrations.</div>
+          </div>
+          <div>
+            <div class="footer-col-title">Product</div>
+            <ul class="footer-col-links">
+              <li><a href="#features">Features</a></li>
+              <li><a href="#how-it-works">How It Works</a></li>
+              <li><a href="#use-cases">Use Cases</a></li>
+              <li><a href="#pricing">Pricing Plans</a></li>
+              <li><a href="/dashboard" data-route="/dashboard">Live Dashboard</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer-col-title">App Routes</div>
+            <ul class="footer-col-links">
+              <li><a href="/restaurants" data-route="/restaurants">Restaurants</a></li>
+              <li><a href="/reviews" data-route="/reviews">Reviews Inbox</a></li>
+              <li><a href="/ai-insights" data-route="/ai-insights">AI Insights</a></li>
+              <li><a href="/action-center" data-route="/action-center">Action Center</a></li>
+              <li><a href="/analytics" data-route="/analytics">Analytics</a></li>
+              <li><a href="/integrations" data-route="/integrations">Connectors</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer-col-title">Legal & Security</div>
+            <ul class="footer-col-links">
+              <li><a href="#" onclick="alert('ReviewPilot AI Privacy Policy: Tenant data is strictly isolated and never sold.')">Privacy Policy</a></li>
+              <li><a href="#" onclick="alert('ReviewPilot AI Terms: AI recommendations require human managerial sign-off.')">Terms of Service</a></li>
+              <li><a href="#" onclick="alert('ReviewPilot AI Security: Secrets stay server-side; PBKDF2 authentication enforced.')">Security Architecture</a></li>
+              <li><a href="mailto:support@reviewpilot.ai">Contact Support</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom-bar">
+          <div>&copy; 2026 ReviewPilot AI, Inc. All rights reserved.</div>
+          <div style="display:flex; gap:16px;">
+            <a href="/login" data-route="/login" style="color:#94a3b8;">Staff Login</a>
+            <a href="/signup" data-route="/signup" style="color:#94a3b8;">Create Tenant</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 2. AUTHENTICATION SCREENS (Routes: /login, /signup, /recover)             -->
+  <!-- ========================================================================= -->
+  <div id="authView" class="auth-page" style="display:none;">
+    <!-- Login Card -->
+    <div id="authCardLogin" class="auth-card-box">
+      <div class="auth-header">
+        <a href="/" data-route="/" style="display:inline-flex; align-items:center; gap:8px; margin-bottom:12px; text-decoration:none;">
+          <div class="nav-logo-box" style="width:30px; height:30px; font-size:13px;">RP</div>
+          <span style="font-weight:800; font-size:16px; color:var(--text-primary);">ReviewPilot AI</span>
+        </a>
+        <h2 class="auth-title">Welcome Back</h2>
+        <p class="auth-sub">Sign in to your restaurant intelligence dashboard</p>
+      </div>
+
+      <div id="loginAlert" class="auth-alert"></div>
+
+      <form id="formLogin">
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" id="loginEmail" class="input-text" required placeholder="owner@royalspice.com">
+          <div class="input-error">Please enter a valid email address.</div>
+        </div>
+        <div class="form-group">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <label class="form-label">Password</label>
+            <a href="/recover" data-route="/recover" style="font-size:11.5px; color:var(--emerald-primary);">Forgot password?</a>
+          </div>
+          <input type="password" id="loginPassword" class="input-text" required placeholder="••••••••">
+          <div class="input-error">Password is required.</div>
+        </div>
+        <button type="submit" id="btnLoginSubmit" class="btn btn-primary" style="width:100%; margin-bottom:12px;">Sign In to ReviewPilot</button>
+      </form>
+
+      <button type="button" id="btnQuickDemoLogin" class="btn btn-outline btn-sm" style="width:100%; margin-bottom:16px;">
+        ⚡ Autofill Demo Credentials (Royal Spice Owner)
+      </button>
+
+      <div style="text-align:center; font-size:12.5px; color:var(--text-muted);">
+        Don't have a restaurant account? <a href="/signup" data-route="/signup" style="font-weight:600;">Start Free Trial</a>
+      </div>
+    </div>
+
+    <!-- Signup Card -->
+    <div id="authCardSignup" class="auth-card-box" style="display:none;">
+      <div class="auth-header">
+        <a href="/" data-route="/" style="display:inline-flex; align-items:center; gap:8px; margin-bottom:12px; text-decoration:none;">
+          <div class="nav-logo-box" style="width:30px; height:30px; font-size:13px;">RP</div>
+          <span style="font-weight:800; font-size:16px; color:var(--text-primary);">ReviewPilot AI</span>
+        </a>
+        <h2 class="auth-title">Create Tenant Account</h2>
+        <p class="auth-sub">Set up your restaurant brand and start analyzing reviews</p>
+      </div>
+
+      <div id="signupAlert" class="auth-alert"></div>
+
+      <form id="formSignup">
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input type="text" id="signupFullName" class="input-text" required placeholder="Rajesh Sharma">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Restaurant Brand / Organization Name</label>
+          <input type="text" id="signupOrgName" class="input-text" required placeholder="Royal Spice Hospitality">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" id="signupEmail" class="input-text" required placeholder="rajesh@royalspice.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <input type="password" id="signupPassword" class="input-text" required placeholder="Choose a secure password (min 8 chars)">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Select Proposed Plan Tier</label>
+          <select id="signupPlanTier" class="select-input">
+            <option value="growth">Growth Plan (Up to 3 Outlets) — Most Popular</option>
+            <option value="starter">Starter Plan (Single Location)</option>
+            <option value="enterprise">Enterprise Plan (Chains & Franchises)</option>
+          </select>
+        </div>
+        <button type="submit" id="btnSignupSubmit" class="btn btn-primary" style="width:100%; margin-bottom:14px;">Create Restaurant Account →</button>
+      </form>
+
+      <div style="text-align:center; font-size:12.5px; color:var(--text-muted);">
+        Already have an account? <a href="/login" data-route="/login" style="font-weight:600;">Sign In</a>
+      </div>
+    </div>
+
+    <!-- Password Recovery Card -->
+    <div id="authCardRecover" class="auth-card-box" style="display:none;">
+      <div class="auth-header">
+        <a href="/" data-route="/" style="display:inline-flex; align-items:center; gap:8px; margin-bottom:12px; text-decoration:none;">
+          <div class="nav-logo-box" style="width:30px; height:30px; font-size:13px;">RP</div>
+          <span style="font-weight:800; font-size:16px; color:var(--text-primary);">ReviewPilot AI</span>
+        </a>
+        <h2 class="auth-title">Reset Password</h2>
+        <p class="auth-sub">Enter your registered email address and we will generate recovery instructions.</p>
+      </div>
+
+      <div id="recoverAlert" class="auth-alert"></div>
+
+      <form id="formRecover">
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" id="recoverEmail" class="input-text" required placeholder="owner@royalspice.com">
+        </div>
+        <button type="submit" id="btnRecoverSubmit" class="btn btn-primary" style="width:100%; margin-bottom:14px;">Send Reset Link</button>
+      </form>
+
+      <div style="text-align:center; font-size:12.5px; color:var(--text-muted);">
+        Remember your password? <a href="/login" data-route="/login" style="font-weight:600;">Back to Sign In</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 4. PUBLIC RESTAURANT REVIEW VIEW (Route: /r/:slug)                        -->
+  <!-- ========================================================================= -->
+  <div id="publicReviewView" class="public-review-view" style="display:none;">
+    <!-- Public Header Banner -->
+    <div class="public-review-card">
+      <div class="public-header-banner">
+        <div class="public-brand-pill">
+          <span>🍽️ Verified Dining Experience</span>
+        </div>
+        <h1 class="public-restaurant-name" id="pubRestaurantName">Royal Spice Kitchen</h1>
+        <div class="public-restaurant-meta">
+          <span id="pubRestaurantCuisine">North Indian, Mughlai & Fine Dining</span>
+          <span>•</span>
+          <span id="pubRestaurantCity">Delhi & NCR</span>
+        </div>
+        <p style="font-size:13px; color:#e2e8f0; margin-top:12px; line-height:1.5; max-width:540px; margin-left:auto; margin-right:auto;" id="pubWelcomeMessage">
+          We cherish your honest dining feedback. Your review goes directly to our executive chef and management team to help us continuously elevate our food, service, and hospitality.
+        </p>
+      </div>
+
+      <!-- Main Form Body -->
+      <div class="public-card-body" id="pubFormContainer">
+        <!-- Error / Status Alert -->
+        <div id="pubFormAlert" class="auth-alert" style="display:none; margin-bottom:18px;"></div>
+
+        <form id="formPublicReview">
+          <!-- Outlet Selection (if multiple) -->
+          <div class="form-group" id="pubOutletGroup">
+            <label class="form-label">Dining Location / Outlet Visited</label>
+            <select id="pubOutletSelect" class="select-input"></select>
+          </div>
+
+          <!-- Overall Star Rating (1 to 5) -->
+          <div class="rating-section-box">
+            <label class="form-label" style="font-size:13.5px; margin-bottom:4px;">How was your overall experience?</label>
+            <div class="star-rating-row" id="overallStarRow">
+              <button type="button" class="star-btn" data-val="1" title="1 Star - Poor">★</button>
+              <button type="button" class="star-btn" data-val="2" title="2 Stars - Fair">★</button>
+              <button type="button" class="star-btn" data-val="3" title="3 Stars - Good">★</button>
+              <button type="button" class="star-btn" data-val="4" title="4 Stars - Very Good">★</button>
+              <button type="button" class="star-btn active" data-val="5" title="5 Stars - Outstanding">★</button>
+            </div>
+            <div class="star-rating-label" id="overallStarLabel">5 Stars — Outstanding Experience</div>
+            <input type="hidden" id="pubOverallRating" value="5">
+          </div>
+
+          <!-- Detailed Category Ratings -->
+          <div style="margin-bottom:8px;">
+            <label class="form-label" style="font-size:13px;">Rate Specific Categories (Optional)</label>
+          </div>
+          <div class="subratings-grid">
+            <div class="subrating-card">
+              <span class="subrating-title">🍲 Food Quality & Taste</span>
+              <div class="mini-star-row" data-field="food_quality">
+                <button type="button" class="mini-star-btn active" data-val="1">★</button>
+                <button type="button" class="mini-star-btn active" data-val="2">★</button>
+                <button type="button" class="mini-star-btn active" data-val="3">★</button>
+                <button type="button" class="mini-star-btn active" data-val="4">★</button>
+                <button type="button" class="mini-star-btn active" data-val="5">★</button>
+              </div>
+              <input type="hidden" id="pubFoodRating" value="5">
+            </div>
+
+            <div class="subrating-card">
+              <span class="subrating-title">🛎️ Service & Staff</span>
+              <div class="mini-star-row" data-field="service">
+                <button type="button" class="mini-star-btn active" data-val="1">★</button>
+                <button type="button" class="mini-star-btn active" data-val="2">★</button>
+                <button type="button" class="mini-star-btn active" data-val="3">★</button>
+                <button type="button" class="mini-star-btn active" data-val="4">★</button>
+                <button type="button" class="mini-star-btn active" data-val="5">★</button>
+              </div>
+              <input type="hidden" id="pubServiceRating" value="5">
+            </div>
+
+            <div class="subrating-card">
+              <span class="subrating-title">✨ Cleanliness & Ambience</span>
+              <div class="mini-star-row" data-field="cleanliness">
+                <button type="button" class="mini-star-btn active" data-val="1">★</button>
+                <button type="button" class="mini-star-btn active" data-val="2">★</button>
+                <button type="button" class="mini-star-btn active" data-val="3">★</button>
+                <button type="button" class="mini-star-btn active" data-val="4">★</button>
+                <button type="button" class="mini-star-btn active" data-val="5">★</button>
+              </div>
+              <input type="hidden" id="pubCleanlinessRating" value="5">
+            </div>
+
+            <div class="subrating-card">
+              <span class="subrating-title">💰 Value for Money</span>
+              <div class="mini-star-row" data-field="value_for_money">
+                <button type="button" class="mini-star-btn active" data-val="1">★</button>
+                <button type="button" class="mini-star-btn active" data-val="2">★</button>
+                <button type="button" class="mini-star-btn active" data-val="3">★</button>
+                <button type="button" class="mini-star-btn active" data-val="4">★</button>
+                <button type="button" class="mini-star-btn active" data-val="5">★</button>
+              </div>
+              <input type="hidden" id="pubValueRating" value="5">
+            </div>
+          </div>
+
+          <!-- Written Verbatim Feedback -->
+          <div class="form-group">
+            <label class="form-label">Your Written Feedback <span style="color:#ef4444;">*</span></label>
+            <textarea id="pubReviewText" class="textarea-input" rows="4" required placeholder="Tell our kitchen and management about your meal, staff service, temperature, wait times, or anything we can do better..."></textarea>
+            <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--text-dim); margin-top:4px;">
+              <span>Minimum 5 characters</span>
+              <span id="charCountDisplay">0 / 2500</span>
+            </div>
+          </div>
+
+          <!-- Dish or Menu Item & Date -->
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-bottom:16px;">
+            <div class="form-group" style="margin-bottom:0;">
+              <label class="form-label">Dish or Item Ordered (Optional)</label>
+              <input type="text" id="pubMenuItem" class="input-text" placeholder="e.g. Butter Chicken, Dal Makhani">
+            </div>
+            <div class="form-group" style="margin-bottom:0;">
+              <label class="form-label">Visit Date (Optional)</label>
+              <input type="date" id="pubVisitDate" class="input-text">
+            </div>
+          </div>
+
+          <!-- Guest Details -->
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-bottom:16px;">
+            <div class="form-group" style="margin-bottom:0;">
+              <label class="form-label">Your Name (Optional)</label>
+              <input type="text" id="pubCustomerName" class="input-text" placeholder="Anonymous Diner or Full Name">
+            </div>
+            <div class="form-group" style="margin-bottom:0;">
+              <label class="form-label">Email Address (Optional)</label>
+              <input type="email" id="pubCustomerEmail" class="input-text" placeholder="For manager follow-up only">
+            </div>
+          </div>
+
+          <!-- Honeypot anti-spam protection (Invisible to humans) -->
+          <div style="display:none !important;" aria-hidden="true">
+            <input type="text" id="pubWebsiteHp" name="website_hp" tabindex="-1" autocomplete="off">
+          </div>
+
+          <!-- Privacy Guarantee Notice -->
+          <div class="privacy-guarantee-banner">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <div>
+              <strong>Private Internal Feedback Guarantee:</strong> Your feedback is delivered directly to the restaurant owner and executive culinary team. Personal information is optional and will <strong>never</strong> be published on the web or sold to advertisers.
+            </div>
+          </div>
+
+          <button type="submit" id="btnSubmitPublicReview" class="btn btn-primary" style="width:100%; padding:14px; font-size:15px;">
+            Submit Feedback to Management →
+          </button>
+        </form>
+      </div>
+
+      <!-- Success Confirmation Card -->
+      <div id="pubSuccessCard" class="public-card-body" style="display:none; text-align:center; padding:48px 24px;">
+        <div style="width:64px; height:64px; border-radius:50%; background:#ecfdf5; color:#059669; font-size:32px; display:inline-flex; align-items:center; justify-content:center; margin-bottom:18px;">
+          ✓
+        </div>
+        <h2 style="font-size:24px; font-weight:800; color:var(--text-primary); margin-bottom:8px;">Thank You for Your Feedback!</h2>
+        <p style="font-size:14px; color:var(--text-muted); max-width:480px; margin:0 auto 24px auto; line-height:1.6;">
+          Your honest thoughts have been directly transmitted to our restaurant leadership and kitchen team. Feedback like yours helps us make real recipe, hygiene, and hospitality improvements every day.
+        </p>
+        <button type="button" id="btnPubSubmitAnother" class="btn btn-outline btn-sm">Submit Another Response</button>
+      </div>
+
+      <!-- 404 Restaurant Not Found State -->
+      <div id="pubNotFoundCard" class="public-card-body" style="display:none; text-align:center; padding:60px 24px;">
+        <div style="font-size:48px; margin-bottom:12px;">🔍</div>
+        <h2 style="font-size:22px; font-weight:800; color:var(--text-primary); margin-bottom:8px;">Restaurant Not Found</h2>
+        <p style="font-size:13.5px; color:var(--text-muted); max-width:400px; margin:0 auto 20px auto;">
+          The review link or QR code you scanned does not correspond to an active restaurant profile. Please check the URL and try again.
+        </p>
+        <a href="/" data-route="/" class="btn btn-primary btn-sm">Go to ReviewPilot AI Home</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 5. PRINT-FRIENDLY TABLE POSTER VIEW (Route: /r/:slug/poster)              -->
+  <!-- ========================================================================= -->
+  <div id="printPosterView" class="table-poster-view" style="display:none;">
+    <div class="poster-action-bar">
+      <button class="btn btn-outline btn-sm" onclick="history.back()">← Back</button>
+      <div style="font-size:12.5px; font-weight:700; color:var(--text-primary);">Table Tent & Window Poster</div>
+      <div style="display:flex; gap:8px;">
+        <button id="btnDownloadPosterQr" class="btn btn-outline btn-sm">💾 Download QR</button>
+        <button class="btn btn-primary btn-sm" onclick="window.print()">🖨️ Print Poster</button>
+      </div>
+    </div>
+
+    <div class="table-poster-card">
+      <div class="poster-header">
+        <div class="poster-brand-logo">RP</div>
+        <div class="poster-title" id="posterRestaurantName">Royal Spice Kitchen</div>
+        <div class="poster-subtitle">How was your dining experience today?</div>
+      </div>
+
+      <div class="poster-body">
+        <div class="poster-qr-frame">
+          <img id="posterQrImage" alt="Review QR Code">
+        </div>
+
+        <div style="font-size:15px; font-weight:800; color:var(--text-primary); margin-bottom:4px;">
+          Scan with your phone to share instant feedback
+        </div>
+        <div style="font-size:12px; color:var(--text-muted); max-width:380px; margin:0 auto;">
+          Sent directly to our executive chef & general manager. No account required.
+        </div>
+
+        <div class="poster-steps">
+          <div class="poster-step-item">
+            <div class="poster-step-num">1. Open Camera</div>
+            <div class="poster-step-text">Point at the QR code</div>
+          </div>
+          <div class="poster-step-item">
+            <div class="poster-step-num">2. Tap the Link</div>
+            <div class="poster-step-text">Open feedback form</div>
+          </div>
+          <div class="poster-step-item">
+            <div class="poster-step-num">3. Rate & Improve</div>
+            <div class="poster-step-text">Help our kitchen grow</div>
+          </div>
+        </div>
+        <div style="font-size:12px; font-family:monospace; color:var(--text-dim); margin-top:14px; word-break:break-all;" id="posterReviewUrlText"></div>
+
+        <div class="poster-footer-tag">
+          🔒 Private Internal Guest Telemetry • Powered by ReviewPilot AI
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 3. AUTHENTICATED APPLICATION DASHBOARD SHELL                              -->
+  <!-- ========================================================================= -->
+  <div id="dashboardShell" class="app-layout" style="display:none;">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="brand-container">
+        <div class="brand-logo">RP</div>
+        <div>
+          <div class="brand-title">ReviewPilot AI</div>
+          <div class="brand-tag">Restaurant Operations Agent</div>
+        </div>
+      </div>
+
+      <!-- Tenant Card -->
+      <div class="tenant-card">
+        <div class="tenant-name" id="sidebarOrgName">Royal Spice Kitchen</div>
+        <div class="tenant-meta">
+          <span id="sidebarBrandGroup">Royal Spice Hospitality</span>
+          <span class="tenant-plan-badge" id="sidebarPlanBadge">Growth</span>
+        </div>
+      </div>
+
+      <!-- Nav Menu (Mapped directly to required routes) -->
+      <nav class="nav-menu">
+        <div class="nav-group-title">Operations</div>
+        <a href="/dashboard" class="nav-item active" data-route="/dashboard">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          Dashboard
+        </a>
+        <a href="/restaurants" class="nav-item" data-route="/restaurants">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          Restaurants & Outlets
+        </a>
+        <a href="/reviews" class="nav-item" data-route="/reviews">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Reviews Inbox
+          <span class="badge-count" id="badgeReviewsCount">20</span>
+        </a>
+        <a href="/ai-insights" class="nav-item" data-route="/ai-insights">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          AI Root-Cause Intel
+        </a>
+        <a href="/action-center" class="nav-item" data-route="/action-center">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Action Center
+          <span class="badge-count critical" id="badgeCriticalTasks">1</span>
+        </a>
+
+        <div class="nav-group-title">Intelligence & Connectors</div>
+        <a href="/analytics" class="nav-item" data-route="/analytics">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg>
+          Analytics & Revenue
+        </a>
+        <a href="/integrations" class="nav-item" data-route="/integrations">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+          viaSocket Connectors
+        </a>
+        <a href="/settings" class="nav-item" data-route="/settings">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          Settings & Audit Trail
+        </a>
+      </nav>
+
+      <!-- Sidebar Footer -->
+      <div class="sidebar-footer">
+        <div class="viasocket-pill">
+          <div class="pulse-dot"></div>
+          <div>
+            <div style="font-weight:600; color:#fff; font-size:12px;">viaSocket Mesh</div>
+            <div style="font-size:10px; color:#94a3b8;">Verified AI Skill Integration</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Top Action & Filter Bar -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <h1 class="page-heading" id="pageHeading">Operations Dashboard</h1>
+          <p class="page-sub" id="pageSub">Real-time customer feedback intelligence across all restaurant locations.</p>
+        </div>
+
+        <div class="topbar-right">
+          <!-- Global Restaurant Outlet Filter -->
+          <select id="globalOutletFilter" class="select-input" style="width: 200px;">
+            <option value="All Outlets">All Outlets</option>
+            <option value="Downtown Flagship">Downtown Flagship</option>
+            <option value="Cyber City Cloud Kitchen">Cyber City Cloud Kitchen</option>
+            <option value="Westend Mall">Westend Mall</option>
+          </select>
+
+          <!-- Notification Bell with Dropdown -->
+          <div class="topbar-dropdown-container">
+            <button id="btnNotifBell" class="notification-btn" title="View Alerts & Operational Notifications">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+              <span class="notification-badge-dot"></span>
+            </button>
+            <div id="notificationsDropdown" class="notifications-dropdown-menu">
+              <div class="notif-menu-header">
+                <span>Operational Alerts</span>
+                <span class="badge neutral" id="notifUnreadBadge">Live Feed</span>
+              </div>
+              <div id="topbarNotificationsList" class="notif-list-container">
+                <div class="notif-item critical">
+                  <strong>🚨 Emergency Food Safety Alert</strong>
+                  <div style="font-size:11px; color:#475569; margin-top:2px;">Cold chain audit mandated for Prawn Curry at Downtown Flagship.</div>
+                </div>
+                <div class="notif-item">
+                  <strong>📦 Packaging Alert</strong>
+                  <div style="font-size:11px; color:#475569; margin-top:2px;">2 spilled curry delivery reviews flagged on Swiggy channel.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Actions -->
+          <button id="btnManualReview" class="btn btn-primary btn-sm">+ Add Review</button>
+          <a href="/" class="btn btn-outline btn-sm" data-route="/">Public Website</a>
+
+          <!-- Profile Menu -->
+          <div class="profile-menu-container">
+            <button id="btnProfileMenuToggle" class="btn btn-outline btn-sm" style="display:flex; align-items:center; gap:6px;">
+              <span style="width:8px; height:8px; border-radius:50%; background:#10b981;"></span>
+              <span id="topbarUserName">Rajesh Sharma</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div id="profileDropdown" class="profile-dropdown-menu">
+              <div style="padding:6px 10px; border-bottom:1px solid var(--border-subtle); margin-bottom:4px;">
+                <div style="font-weight:700; font-size:12px;" id="profileDropdownName">Rajesh Sharma</div>
+                <div style="font-size:11px; color:var(--text-dim);" id="profileDropdownEmail">owner@royalspice.com</div>
+              </div>
+              <button class="profile-menu-item" onclick="appNavigate('/settings')">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                Organization Settings
+              </button>
+              <button class="profile-menu-item" onclick="document.getElementById('onboardingModal').classList.remove('hidden')">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+                Launch Onboarding Wizard
+              </button>
+              <div class="profile-menu-divider"></div>
+              <button class="profile-menu-item" id="btnSignOutProfile" style="color:var(--rose-primary);">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                Sign Out
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Content Body: Specific Route Panes -->
+      <div class="content-body">
+        
+        <!-- ================================================================= -->
+        <!-- PANE 1: /dashboard                                                -->
+        <!-- ================================================================= -->
+        <section id="pane-dashboard" class="tab-pane active">
+          <div class="kpi-grid">
+            <div class="kpi-card">
+              <div class="kpi-header"><span>Average Star Rating</span><span>★</span></div>
+              <div class="kpi-val" id="kpiAvgRating">2.8</div>
+              <div class="kpi-delta negative" id="kpiRatingDelta">↓ 0.15 WoW (Below Target 4.2★)</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-header"><span>Total Analyzed Reviews</span><span>💬</span></div>
+              <div class="kpi-val" id="kpiTotalReviews">20</div>
+              <div class="kpi-delta positive">100% Ingested & Classified</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-header"><span>Critical Action Playbooks</span><span>🚨</span></div>
+              <div class="kpi-val" id="kpiCriticalActions" style="color:var(--rose-primary);">1</div>
+              <div class="kpi-delta negative">Safety & Packaging Spills</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-header"><span>Est. Revenue at Risk</span><span>₹</span></div>
+              <div class="kpi-val" id="kpiRevenueRisk" style="color:var(--amber-primary);">₹4,62,600</div>
+              <div class="kpi-delta neutral">Based on Churn Telemetry</div>
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns: 2fr 1fr; gap: 20px;">
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <div class="card-title">Top Operational Issues & Complaint Clusters</div>
+                  <div class="card-sub">Prioritized by 0–100 Smart Priority Score (Severity, Drag, Spread)</div>
+                </div>
+                <button class="btn btn-xs btn-outline" onclick="appNavigate('/action-center')">View All Tasks</button>
+              </div>
+              <div id="overviewTopComplaintsList"></div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title">Sentiment Breakdown</div>
+              </div>
+              <div id="sentimentDistributionBox"></div>
+              <div style="margin-top:20px;">
+                <div class="card-title" style="font-size:13px; margin-bottom:8px;">Live System Notifications</div>
+                <div id="overviewNotificationsList"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================= -->
+        <!-- PANE 2: /restaurants                                              -->
+        <!-- ================================================================= -->
+        <section id="pane-restaurants" class="tab-pane">
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">Restaurants & Outlets Portfolio</div>
+                <div class="card-sub">Manage physical locations, cloud kitchens, franchise branches, and localized operating hours.</div>
+              </div>
+              <button id="btnOpenNewOutletModal" class="btn btn-sm btn-primary">+ Add New Outlet</button>
+            </div>
+
+            <div id="outletsGridContainer" class="outlets-grid">
+              <!-- Dynamically populated from /api/outlets -->
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================= -->
+        <!-- PANE 3: /reviews                                                  -->
+        <!-- ================================================================= -->
+        <section id="pane-reviews" class="tab-pane">
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">Reviews Inbox & Telemetry</div>
+                <div class="card-sub">Multi-platform customer feedback with structured sentiment and dish extraction.</div>
+                <div id="syncStatusBadge" style="margin-top:6px; font-size:12px; color:var(--text-muted); display:flex; align-items:center; gap:6px;"></div>
+              </div>
+              <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+                <button id="btnOpenReviewQrModal" class="btn btn-sm btn-outline">📱 QR Code & Posters</button>
+                <button id="btnSyncViaSocketReviews" class="btn btn-sm btn-success">📥 Fetch from viaSocket</button>
+                <button id="btnExportReviewsCsv" class="btn btn-sm btn-outline">Export CSV</button>
+                <button id="btnNewManualReview" class="btn btn-sm btn-primary">+ Manual Entry</button>
+              </div>
+            </div>
+
+            <!-- Filter Exclusion Alert -->
+            <div id="filterExclusionNotice" style="display:none; margin:12px 16px 4px; padding:10px 14px; background:#eff6ff; border:1px solid #bfdbfe; border-radius:6px; font-size:13px; color:#1e40af; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
+              <span id="filterExclusionMsg">New reviews were synced successfully, but active filters currently hide them.</span>
+              <button id="btnResetFiltersNotice" class="btn btn-xs btn-primary" style="margin-left:auto;">Reset Filters</button>
+            </div>
+
+            <!-- Filters -->
+            <div class="filter-row">
+              <input type="text" id="filterReviewSearch" class="input-text" placeholder="Search reviews, dishes, reviewer..." style="width:220px;">
+              <select id="filterSource" class="select-input" style="width:160px;">
+                <option value="all">All Sources</option>
+                <option value="google_sheets">Google Sheets</option>
+                <option value="Direct Customer Review">Direct Customer Feedback</option>
+                <option value="Google">Google Business</option>
+                <option value="Square">Square POS</option>
+                <option value="Zomato">Zomato</option>
+                <option value="Swiggy">Swiggy</option>
+              </select>
+              <select id="filterModeration" class="select-input" style="width:140px;">
+                <option value="all">All Moderation</option>
+                <option value="pending">Pending Review</option>
+                <option value="approved">Approved</option>
+                <option value="flagged">Flagged / Spam</option>
+              </select>
+              <select id="filterRating" class="select-input" style="width:120px;">
+                <option value="all">All Ratings</option>
+                <option value="5">5 Stars</option>
+                <option value="4">4 Stars</option>
+                <option value="3">3 Stars</option>
+                <option value="2">2 Stars</option>
+                <option value="1">1 Star</option>
+              </select>
+              <select id="filterSentiment" class="select-input" style="width:120px;">
+                <option value="all">All Sentiments</option>
+                <option value="Positive">Positive</option>
+                <option value="Negative">Negative</option>
+                <option value="Mixed">Mixed</option>
+                <option value="Neutral">Neutral</option>
+              </select>
+              <select id="filterCategory" class="select-input" style="width:160px;">
+                <option value="all">All Categories</option>
+              </select>
+              <input type="date" id="filterDateFrom" class="input-text" style="width:130px;" title="Date From">
+              <input type="date" id="filterDateTo" class="input-text" style="width:130px;" title="Date To">
+            </div>
+
+            <!-- Table -->
+            <div class="table-container">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Rating</th>
+                    <th>Outlet & Source</th>
+                    <th>Customer Review</th>
+                    <th>AI Classification</th>
+                    <th>Severity</th>
+                    <th>Response Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="reviewsTableBody">
+                  <tr><td colspan="7" class="empty-state">Loading customer reviews...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================= -->
+        <!-- PANE 4: /ai-insights                                              -->
+        <!-- ================================================================= -->
+        <section id="pane-ai-insights" class="tab-pane">
+          <!-- AI Agent Action Header Bar -->
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:18px; padding:16px 20px; background:#fff; border:1px solid var(--border-subtle); border-radius:var(--radius-lg); box-shadow:var(--shadow-card);">
+            <div>
+              <div style="display:flex; align-items:center; gap:10px;">
+                <span style="font-size:18px; font-weight:800; color:var(--text-primary); letter-spacing:-0.3px;">ReviewPilot AI Intelligence Agent</span>
+                <span class="badge" style="background:#ecfdf5; color:#059669; border:1px solid #a7f3d0; font-size:11px; font-weight:700;">viaSocket Skill Active</span>
+              </div>
+              <div style="font-size:12.5px; color:var(--text-muted); margin-top:3px;">
+                Autonomous feedback synthesis, evidence-backed recurring complaint clustering, response drafting, and grounded restaurant Q&A.
+              </div>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <button id="btnRunAiBatch" class="btn btn-primary btn-sm" onclick="runAiBatchAnalysis()">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                Run viaSocket AI Analysis
+              </button>
+              <button id="btnRefreshAiIntel" class="btn btn-outline btn-sm" onclick="loadAIInsights(true)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+                Refresh Intel
+              </button>
+              <button class="btn btn-outline btn-sm" onclick="document.getElementById('aiAssistantCard').scrollIntoView({ behavior: 'smooth' })">
+                💬 Ask Assistant
+              </button>
+            </div>
+          </div>
+
+          <!-- Status / Progress Banner -->
+          <div id="aiBatchProgressAlert" style="display:none; padding:12px 16px; margin-bottom:16px; background:#eff6ff; border:1px solid #bfdbfe; border-radius:var(--radius-md); font-size:13px; color:#1e40af; display:flex; align-items:center; gap:10px;">
+            <div class="spinner" style="width:16px; height:16px; border:2px solid #93c5fd; border-top-color:#1d4ed8; border-radius:50%; animation:spin 0.8s linear infinite;"></div>
+            <span id="aiBatchProgressText">Analyzing reviews using viaSocket AI Agent...</span>
+          </div>
+
+          <!-- Sentiment & Pulse Metrics Cards -->
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:14px; margin-bottom:20px;">
+            <div class="card" style="padding:16px;">
+              <div style="font-size:11.5px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px;">Guest Sentiment Balance</div>
+              <div style="display:flex; align-items:baseline; gap:8px; margin:8px 0 6px;">
+                <span id="aiSentimentPositivePct" style="font-size:26px; font-weight:800; color:#059669;">--%</span>
+                <span style="font-size:12px; color:var(--text-muted);">Positive feedback</span>
+              </div>
+              <div style="height:6px; background:#e2e8f0; border-radius:3px; overflow:hidden; display:flex;">
+                <div id="aiSentimentBarPos" style="height:100%; background:#10b981; width:70%;"></div>
+                <div id="aiSentimentBarNeu" style="height:100%; background:#94a3b8; width:15%;"></div>
+                <div id="aiSentimentBarNeg" style="height:100%; background:#ef4444; width:15%;"></div>
+              </div>
+              <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--text-muted); margin-top:6px;">
+                <span id="aiSentimentCountPos">-- Pos</span>
+                <span id="aiSentimentCountNeu">-- Neu</span>
+                <span id="aiSentimentCountNeg">-- Neg</span>
+              </div>
+            </div>
+
+            <div class="card" style="padding:16px;">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <div style="font-size:11.5px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px;">Recurring Complaints</div>
+                <span class="badge" style="background:#fee2e2; color:#b91c1c; font-size:10px;">≥ 2 Reviews</span>
+              </div>
+              <div style="display:flex; align-items:baseline; gap:8px; margin:8px 0 6px;">
+                <span id="aiRecurringCount" style="font-size:26px; font-weight:800; color:#b91c1c;">--</span>
+                <span style="font-size:12px; color:var(--text-muted);">Active patterns</span>
+              </div>
+              <div style="font-size:11.5px; color:var(--text-muted);" id="aiRecurringSubtext">
+                Multi-review validated operational friction
+              </div>
+            </div>
+
+            <div class="card" style="padding:16px;">
+              <div style="font-size:11.5px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px;">Growth Recommendations</div>
+              <div style="display:flex; align-items:baseline; gap:8px; margin:8px 0 6px;">
+                <span id="aiRecommendationsCount" style="font-size:26px; font-weight:800; color:#2563eb;">--</span>
+                <span style="font-size:12px; color:var(--text-muted);">Prioritized playbooks</span>
+              </div>
+              <div style="font-size:11.5px; color:var(--text-muted);">
+                Measurable operational & revenue actions
+              </div>
+            </div>
+
+            <div class="card" style="padding:16px;">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <div style="font-size:11.5px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px;">Pending Response Drafts</div>
+                <span class="badge" style="background:#fef3c7; color:#92400e; font-size:10px;">Review Required</span>
+              </div>
+              <div style="display:flex; align-items:baseline; gap:8px; margin:8px 0 6px;">
+                <span id="aiPendingDraftsCount" style="font-size:26px; font-weight:800; color:#d97706;">--</span>
+                <span style="font-size:12px; color:var(--text-muted);">Awaiting sign-off</span>
+              </div>
+              <div style="font-size:11.5px; color:var(--text-muted);">
+                Human approval required before sending
+              </div>
+            </div>
+          </div>
+
+          <!-- Ask Your Restaurant Conversational Assistant -->
+          <div class="card" id="aiAssistantCard" style="margin-bottom:20px; border-top:3px solid var(--primary);">
+            <div class="card-header" style="padding-bottom:12px;">
+              <div style="display:flex; justify-content:space-between; align-items:center; width:100%;">
+                <div>
+                  <div class="card-title" style="display:flex; align-items:center; gap:8px;">
+                    <span>Ask Your Restaurant Assistant</span>
+                    <span class="badge" style="background:#e0e7ff; color:#3730a3; font-size:11px;">viaSocket AI • Grounded in Stored Data</span>
+                  </div>
+                  <div class="card-sub">
+                    Direct executive Q&A grounded strictly in your restaurant's authorized reviews. Never hallucinates or speculates.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Starter Prompt Chips -->
+            <div style="padding:0 20px 14px; display:flex; flex-wrap:wrap; gap:8px;">
+              <span style="font-size:11.5px; color:var(--text-muted); align-self:center; font-weight:600;">Try asking:</span>
+              <button type="button" class="btn btn-outline btn-sm qa-chip" onclick="askAiQuestion('What are customers complaining about most?')">
+                What are customers complaining about most?
+              </button>
+              <button type="button" class="btn btn-outline btn-sm qa-chip" onclick="askAiQuestion('Which dishes receive the best feedback?')">
+                Which dishes receive the best feedback?
+              </button>
+              <button type="button" class="btn btn-outline btn-sm qa-chip" onclick="askAiQuestion('Has service sentiment improved this month?')">
+                Has service sentiment improved this month?
+              </button>
+              <button type="button" class="btn btn-outline btn-sm qa-chip" onclick="askAiQuestion('What should we fix first?')">
+                What should we fix first?
+              </button>
+              <button type="button" class="btn btn-outline btn-sm qa-chip" onclick="askAiQuestion('Which issues are increasing?')">
+                Which issues are increasing?
+              </button>
+            </div>
+
+            <!-- Conversation Thread Container -->
+            <div id="qaMessagesContainer" style="padding:16px 20px; background:#f8fafc; border-top:1px solid var(--border-subtle); border-bottom:1px solid var(--border-subtle); max-height:360px; overflow-y:auto; display:flex; flex-direction:column; gap:12px;">
+              <div style="display:flex; gap:10px; align-items:flex-start;">
+                <div style="width:32px; height:32px; border-radius:50%; background:var(--primary); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:13px; flex-shrink:0;">RP</div>
+                <div style="background:#fff; border:1px solid var(--border-subtle); border-radius:var(--radius-md); padding:12px 16px; font-size:13.5px; line-height:1.5; color:var(--text-primary); max-width:85%; box-shadow:0 1px 2px rgba(0,0,0,0.04);">
+                  Hello! I am your <strong>ReviewPilot AI Assistant</strong>. Ask me anything about guest complaints, praised dishes, service delays, or operational trends. My answers are grounded strictly in your restaurant's verified review records.
+                </div>
+              </div>
+            </div>
+
+            <!-- Chat Input Row -->
+            <div style="padding:14px 20px; display:flex; gap:10px; align-items:center;">
+              <input type="text" id="qaInputText" class="form-input" placeholder="Ask a question about your reviews, dishes, delays, or service quality..." style="flex:1;" onkeydown="if(event.key==='Enter') submitQaQuestion()">
+              <button id="btnSendQA" class="btn btn-primary" onclick="submitQaQuestion()" style="display:flex; align-items:center; gap:6px;">
+                <span>Send</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              </button>
+            </div>
+            <div style="padding:0 20px 10px; font-size:11px; color:var(--text-muted); display:flex; justify-content:space-between;">
+              <span>🔒 Multi-tenant isolated • Server-side permissions enforced</span>
+              <span>Prompt injection defense active</span>
+            </div>
+          </div>
+
+          <!-- Two-Column Primary Intel Grid -->
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:20px;">
+            <!-- Left: Top Complaint Categories -->
+            <div class="card" style="padding:18px;">
+              <div class="card-title" style="font-size:15px; margin-bottom:4px;">Top Complaint Categories</div>
+              <div class="card-sub" style="margin-bottom:14px;">Distribution of customer concerns across food, service, cleanliness, delivery, and pricing.</div>
+              <div id="aiTopComplaintCategories" style="display:flex; flex-direction:column; gap:10px;">
+                <div style="color:var(--text-muted); font-size:12.5px;">Loading complaint categories...</div>
+              </div>
+            </div>
+
+            <!-- Right: Positive Themes & Praised Highlights -->
+            <div class="card" style="padding:18px;">
+              <div class="card-title" style="font-size:15px; margin-bottom:4px;">Frequently Praised Dishes & Services</div>
+              <div class="card-sub" style="margin-bottom:14px;">Culinary and hospitality strengths most appreciated by your guests.</div>
+              <div id="aiPositiveThemes" style="display:flex; flex-direction:column; gap:10px;">
+                <div style="color:var(--text-muted); font-size:12.5px;">Loading positive highlights...</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Evidence-Backed Recurring Complaints Section -->
+          <div class="card" style="margin-bottom:20px;">
+            <div class="card-header">
+              <div>
+                <div style="display:flex; align-items:center; gap:8px;">
+                  <div class="card-title">Evidence-Backed Recurring Complaints</div>
+                  <span class="badge" style="background:#fee2e2; color:#991b1b; font-size:11px; font-weight:700;">Strict Rule: ≥ 2 Reviews Required</span>
+                </div>
+                <div class="card-sub">
+                  Problems are only identified as recurring when corroborated by multiple independent customer reviews. Each finding includes date ranges and verbatim evidence quotes.
+                </div>
+              </div>
+            </div>
+            <div style="padding:18px 20px;" id="aiRecurringComplaintsList">
+              <div style="color:var(--text-muted); font-size:13px;">Analyzing recurring review patterns...</div>
+            </div>
+          </div>
+
+          <!-- Prioritized Restaurant Growth Recommendations Section -->
+          <div class="card" style="margin-bottom:20px;">
+            <div class="card-header">
+              <div>
+                <div style="display:flex; align-items:center; gap:8px;">
+                  <div class="card-title">Prioritized Restaurant Growth Recommendations</div>
+                  <span class="badge" style="background:#eff6ff; color:#1d4ed8; font-size:11px; font-weight:700;">Operational Playbooks</span>
+                </div>
+                <div class="card-sub">
+                  Actionable, prioritized recommendations with concrete improvement metrics, expected customer experience impact, and direct links to supporting review evidence.
+                </div>
+              </div>
+            </div>
+            <div style="padding:18px 20px;" id="aiGrowthRecommendationsList">
+              <div style="color:var(--text-muted); font-size:13px;">Formulating prioritized growth playbooks...</div>
+            </div>
+          </div>
+
+          <!-- AI Response Drafts Manager Section -->
+          <div class="card" style="margin-bottom:20px;">
+            <div class="card-header" style="flex-wrap:wrap; gap:10px;">
+              <div>
+                <div style="display:flex; align-items:center; gap:8px;">
+                  <div class="card-title">AI-Generated Response Drafts Manager</div>
+                  <span class="badge" style="background:#fef3c7; color:#92400e; font-size:11px; font-weight:700;">Human Approval Required</span>
+                </div>
+                <div class="card-sub">
+                  Personalized, empathetic response drafts tailored to review sentiment. Never invents compensation, never claims issues are fixed without verification, and never publishes automatically without owner approval.
+                </div>
+              </div>
+              <div style="display:flex; gap:6px;">
+                <button class="btn btn-outline btn-sm active" id="btnDraftFilterAll" onclick="filterDrafts('all')">All Drafts</button>
+                <button class="btn btn-outline btn-sm" id="btnDraftFilterPending" onclick="filterDrafts('draft')">Pending Review</button>
+                <button class="btn btn-outline btn-sm" id="btnDraftFilterApproved" onclick="filterDrafts('approved')">Approved</button>
+              </div>
+            </div>
+            <div style="padding:18px 20px;" id="aiResponseDraftsList">
+              <div style="color:var(--text-muted); font-size:13px;">Loading AI response drafts...</div>
+            </div>
+          </div>
+
+          <!-- Backward Compatibility Section: Root-Cause Investigation Intelligence -->
+          <div class="card" style="margin-bottom:20px; display:none;" id="legacyInvestigationsCard">
+            <div class="card-header">
+              <div>
+                <div class="card-title">Root-Cause Investigation Intelligence</div>
+                <div class="card-sub">Multi-step AI investigation formulation: facts vs hypotheses and verification checklists.</div>
+              </div>
+            </div>
+            <div id="investigationsList"></div>
+          </div>
+        </section>
+
+        <!-- ================================================================= -->
+        <!-- PANE 5: /action-center (Phase 5 Action Center & Goal Tracking)     -->
+        <!-- ================================================================= -->
+        <section id="pane-action-center" class="tab-pane">
+          <!-- Pulse KPI Bar -->
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap:16px; margin-bottom:20px;">
+            <div class="card" style="padding:16px;">
+              <div style="font-size:11.5px; color:var(--text-muted); font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">Total Playbooks</div>
+              <div style="font-size:26px; font-weight:800; color:var(--text-primary); margin:6px 0;" id="kpiTotalTasks">0</div>
+              <div style="font-size:12px; color:var(--text-secondary);">Operational corrective tasks</div>
+            </div>
+            <div class="card" style="padding:16px;">
+              <div style="font-size:11.5px; color:var(--text-muted); font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">In Progress & Open</div>
+              <div style="font-size:26px; font-weight:800; color:var(--amber-primary); margin:6px 0;" id="kpiOpenTasks">0</div>
+              <div style="font-size:12px; color:var(--text-secondary);">Requiring active station attention</div>
+            </div>
+            <div class="card" style="padding:16px;">
+              <div style="font-size:11.5px; color:var(--text-muted); font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">Resolved / Completed</div>
+              <div style="font-size:26px; font-weight:800; color:var(--emerald-primary); margin:6px 0;" id="kpiCompletedTasks">0</div>
+              <div style="font-size:12px; color:var(--emerald-primary); font-weight:600;">With documented outcomes</div>
+            </div>
+            <div class="card" style="padding:16px;">
+              <div style="font-size:11.5px; color:var(--text-muted); font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">Active Growth Goals</div>
+              <div style="font-size:26px; font-weight:800; color:var(--navy-primary); margin:6px 0;" id="kpiActiveGoals">0</div>
+              <div style="font-size:12px; color:var(--text-secondary);">Measured against real reviews</div>
+            </div>
+          </div>
+
+          <!-- Tasks Manager Card -->
+          <div class="card" style="margin-bottom:24px;">
+            <div class="card-header" style="flex-wrap:wrap; gap:12px;">
+              <div>
+                <div class="card-title">Operational Task Center & Playbooks</div>
+                <div class="card-sub">Turn AI recommendations into assigned action items with linked review evidence and completion notes.</div>
+              </div>
+              <div style="display:flex; gap:10px; align-items:center;">
+                <div class="filter-tabs" id="taskStatusFilterTabs" style="display:flex; background:var(--bg-subtle); border-radius:var(--radius-sm); padding:3px; gap:4px;">
+                  <button class="btn btn-xs btn-primary task-filter-btn" data-status="All">All</button>
+                  <button class="btn btn-xs btn-outline task-filter-btn" data-status="Open">Open</button>
+                  <button class="btn btn-xs btn-outline task-filter-btn" data-status="In Progress">In Progress</button>
+                  <button class="btn btn-xs btn-outline task-filter-btn" data-status="Completed">Completed</button>
+                  <button class="btn btn-xs btn-outline task-filter-btn" data-status="Dismissed">Dismissed</button>
+                </div>
+                <select id="taskPrioritySelect" class="form-input" style="width:140px; padding:6px 10px; font-size:12px;" onchange="filterTasks()">
+                  <option value="All">All Priorities</option>
+                  <option value="urgent">Urgent</option>
+                  <option value="high">High</option>
+                  <option value="medium">Medium</option>
+                  <option value="low">Low</option>
+                </select>
+                <button class="btn btn-sm btn-primary" onclick="openNewTaskModal()">+ New Task</button>
+              </div>
+            </div>
+            <div id="tasksList" style="padding:16px; display:flex; flex-direction:column; gap:12px;"></div>
+          </div>
+
+          <!-- Goal Tracking Section -->
+          <div class="card">
+            <div class="card-header" style="flex-wrap:wrap; gap:12px;">
+              <div>
+                <div class="card-title">Restaurant Growth Goals & Telemetry Tracking</div>
+                <div class="card-sub">Set concrete targets for rating improvement, complaint reduction, and review velocity. Grounded in actual feedback data.</div>
+              </div>
+              <button class="btn btn-sm btn-outline" onclick="openNewGoalModal()">+ Set New Goal</button>
+            </div>
+            <div id="goalsGrid" style="padding:16px; display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:16px;"></div>
+          </div>
+        </section>
+
+        <!-- ================================================================= -->
+        <!-- PANE 6: /analytics (Phase 5 Analytics & Revenue Intelligence)       -->
+        <!-- ================================================================= -->
+        <section id="pane-analytics" class="tab-pane">
+          <!-- Date Filter & Controls Bar -->
+          <div class="card" style="margin-bottom:20px; padding:16px;">
+            <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:14px;">
+              <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                <span style="font-size:13px; font-weight:700; color:var(--text-primary);">Time Period:</span>
+                <div class="filter-tabs" id="analyticsPeriodTabs" style="display:flex; background:var(--bg-subtle); border-radius:var(--radius-sm); padding:3px; gap:4px;">
+                  <button class="btn btn-xs btn-outline analytics-period-btn" data-period="7d">7 Days</button>
+                  <button class="btn btn-xs btn-primary analytics-period-btn" data-period="30d">30 Days</button>
+                  <button class="btn btn-xs btn-outline analytics-period-btn" data-period="90d">90 Days</button>
+                  <button class="btn btn-xs btn-outline analytics-period-btn" data-period="all">All Time</button>
+                </div>
+                <div style="display:flex; align-items:center; gap:6px; margin-left:8px;">
+                  <span style="font-size:12px; color:var(--text-muted);">Custom:</span>
+                  <input type="date" id="analyticsStartDate" class="form-input" style="padding:4px 8px; font-size:12px; width:130px;">
+                  <span style="font-size:12px; color:var(--text-muted);">to</span>
+                  <input type="date" id="analyticsEndDate" class="form-input" style="padding:4px 8px; font-size:12px; width:130px;">
+                </div>
+              </div>
+              <div style="display:flex; align-items:center; gap:8px;">
+                <select id="analyticsOutletSelect" class="form-input" style="width:190px; padding:6px 10px; font-size:12px;">
+                  <option value="All Outlets">All Outlets</option>
+                  <option value="Downtown Flagship">Downtown Flagship</option>
+                  <option value="Cyber City Cloud Kitchen">Cyber City Cloud Kitchen</option>
+                  <option value="Westend Mall">Westend Mall</option>
+                </select>
+                <button class="btn btn-sm btn-primary" onclick="loadAnalyticsMetrics()">Apply Filter</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Period-over-Period KPI Cards -->
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:16px; margin-bottom:20px;">
+            <div class="card" style="padding:16px;">
+              <div style="font-size:11.5px; color:var(--text-muted); font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">Total Reviews</div>
+              <div style="font-size:26px; font-weight:800; color:var(--text-primary); margin:6px 0;" id="anKpiTotalReviews">0</div>
+              <div style="font-size:12px;" id="anKpiTotalDelta">Calculating...</div>
+            </div>
+            <div class="card" style="padding:16px;">
+              <div style="font-size:11.5px; color:var(--text-muted); font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">Average Star Rating</div>
+              <div style="font-size:26px; font-weight:800; color:var(--navy-primary); margin:6px 0;" id="anKpiAvgRating">0.0★</div>
+              <div style="font-size:12px;" id="anKpiRatingDelta">Calculating...</div>
+            </div>
+            <div class="card" style="padding:16px;">
+              <div style="font-size:11.5px; color:var(--text-muted); font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">Positive Sentiment</div>
+              <div style="font-size:26px; font-weight:800; color:var(--emerald-primary); margin:6px 0;" id="anKpiPositivePct">0%</div>
+              <div style="font-size:12px;" id="anKpiPositiveDelta">Calculating...</div>
+            </div>
+            <div class="card" style="padding:16px;">
+              <div style="font-size:11.5px; color:var(--text-muted); font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">Negative Sentiment</div>
+              <div style="font-size:26px; font-weight:800; color:var(--rose-primary); margin:6px 0;" id="anKpiNegativePct">0%</div>
+              <div style="font-size:12px;" id="anKpiNegativeDelta">Calculating...</div>
+            </div>
+          </div>
+
+          <!-- Rating Distribution & Sentiment Trends -->
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px; margin-bottom:20px;">
+            <!-- Rating Distribution -->
+            <div class="card" style="padding:20px;">
+              <div class="card-title" style="margin-bottom:4px;">Star Rating Distribution</div>
+              <div class="card-sub" style="margin-bottom:16px;">Breakdown of customer feedback across 1★ to 5★ ratings.</div>
+              <div id="ratingDistributionBars" style="display:flex; flex-direction:column; gap:10px;"></div>
+            </div>
+
+            <!-- Volume Over Time & Sentiment Trend -->
+            <div class="card" style="padding:20px;">
+              <div class="card-title" style="margin-bottom:4px;">Feedback Volume & Sentiment Over Time</div>
+              <div class="card-sub" style="margin-bottom:16px;">Daily feedback volume classified into positive, neutral, and negative.</div>
+              <div id="sentimentTimelineView" style="display:flex; flex-direction:column; gap:8px;"></div>
+            </div>
+          </div>
+
+          <!-- Category Breakdown & Frequently Mentioned Dishes -->
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px; margin-bottom:20px;">
+            <div class="card" style="padding:20px;">
+              <div class="card-title" style="margin-bottom:4px;">Top Complaint & Praise Categories</div>
+              <div class="card-sub" style="margin-bottom:16px;">Friction drivers vs positive brand highlights.</div>
+              <div id="categoryBreakdownSection" style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+                <div>
+                  <div style="font-size:12px; font-weight:700; color:var(--rose-primary); margin-bottom:8px;">Top Friction Drivers</div>
+                  <div id="topComplaintsList" style="display:flex; flex-direction:column; gap:6px;"></div>
+                </div>
+                <div>
+                  <div style="font-size:12px; font-weight:700; color:var(--emerald-primary); margin-bottom:8px;">Top Praise Drivers</div>
+                  <div id="topPraisesList" style="display:flex; flex-direction:column; gap:6px;"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card" style="padding:20px;">
+              <div class="card-title" style="margin-bottom:4px;">Frequently Mentioned Dishes</div>
+              <div class="card-sub" style="margin-bottom:16px;">Dish-level review volume, average rating, and sentiment ratio.</div>
+              <div class="table-container" style="max-height:280px; overflow-y:auto;">
+                <table class="data-table" style="font-size:12px;">
+                  <thead>
+                    <tr>
+                      <th>Dish</th>
+                      <th>Mentions</th>
+                      <th>Avg Rating</th>
+                      <th>Positive %</th>
+                    </tr>
+                  </thead>
+                  <tbody id="mentionedDishesTableBody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Revenue Intelligence: Sales vs Sentiment Matrix -->
+          <div class="card" style="margin-bottom:20px;">
+            <div class="card-header" style="flex-wrap:wrap; gap:12px;">
+              <div>
+                <div class="card-title">Revenue Intelligence: POS Sales vs. Sentiment Matrix</div>
+                <div class="card-sub">Cross-references actual sales volume with customer sentiment to isolate cash cows at risk of churn.</div>
+              </div>
+              <div style="display:flex; gap:8px;">
+                <label class="btn btn-sm btn-outline" style="cursor:pointer; margin:0;">
+                  Upload Sales CSV
+                  <input type="file" id="salesCsvInput" accept=".csv" style="display:none;" onchange="handleSalesCsvUpload(event)">
+                </label>
+                <button class="btn btn-sm btn-outline" onclick="loadRevenueIntelligence()">Refresh Matrix</button>
+              </div>
+            </div>
+            <div style="padding:16px;">
+              <div style="padding:10px 14px; background:var(--bg-subtle); border-radius:var(--radius-sm); font-size:12px; color:var(--text-secondary); margin-bottom:16px; border-left:3px solid var(--navy-primary);">
+                <strong>Strict Telemetry Rule:</strong> Actual revenue is never inferred from star ratings alone. Insights are derived strictly from imported POS sales records and verified transactions.
+              </div>
+              <div id="revenueIntelligenceContainer"></div>
+            </div>
+          </div>
+
+          <!-- Multi-Outlet Benchmark Table -->
+          <div class="card" style="margin-bottom:20px;">
+            <div class="card-header">
+              <div>
+                <div class="card-title">Multi-Outlet Performance Benchmark</div>
+                <div class="card-sub">Cross-location comparison of average rating, hygiene incidents, packaging spills, and task resolution.</div>
+              </div>
+            </div>
+            <div class="table-container">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Outlet Name</th>
+                    <th>Total Reviews</th>
+                    <th>Average Rating</th>
+                    <th>Positive %</th>
+                    <th>Negative %</th>
+                    <th>Food Safety Incidents</th>
+                    <th>Packaging Spills</th>
+                    <th>Open Tasks</th>
+                  </tr>
+                </thead>
+                <tbody id="outletsTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Executive Reports (Weekly & Monthly) -->
+          <div class="card">
+            <div class="card-header" style="flex-wrap:wrap; gap:12px;">
+              <div>
+                <div class="card-title">Executive Operational Briefs & Reports</div>
+                <div class="card-sub">Weekly digests and Monthly executive briefings with worsening issues and recommended next actions.</div>
+              </div>
+              <div style="display:flex; gap:8px; align-items:center;">
+                <select id="reportTypeSelect" class="form-input" style="width:160px; padding:6px 10px; font-size:12px;" onchange="loadExecutiveReport()">
+                  <option value="weekly">Weekly Brief</option>
+                  <option value="monthly">Monthly Executive Report</option>
+                </select>
+                <input type="month" id="reportMonthSelect" class="form-input" value="2026-10" style="width:140px; padding:6px 10px; font-size:12px;" onchange="loadExecutiveReport()">
+                <button id="btnPrintWeeklyBrief" class="btn btn-sm btn-outline" onclick="printReportBrief()">Print PDF</button>
+                <button id="btnExportCsvReport" class="btn btn-sm btn-primary" onclick="exportReportCsv()">Download CSV</button>
+              </div>
+            </div>
+            <div id="weeklyReportContainer" style="padding:16px;"></div>
+          </div>
+        </section>
+
+        <!-- ================================================================= -->
+        <!-- PANE 7: /integrations                                             -->
+        <!-- ================================================================= -->
+        <section id="pane-integrations" class="tab-pane">
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">viaSocket Multi-Platform Connectors</div>
+                <div class="card-sub">Connect restaurant channels via viaSocket OAuth, then fetch customer reviews & stream live operational data.</div>
+              </div>
+              <div style="display:flex; gap:8px;">
+                <button id="btnRefreshIntegrations" class="btn btn-sm btn-outline">↻ Refresh Status</button>
+              </div>
+            </div>
+
+            <div style="margin-bottom:16px; padding:12px 16px; background:var(--bg-subtle); border:1px solid var(--border-subtle); border-radius:var(--radius-md); display:flex; align-items:center; justify-content:space-between;">
+              <div style="font-size:12.5px; color:var(--text-primary);">
+                <strong>⚡ Direct viaSocket Integration:</strong> Connect your accounts (Google Business Profile, Google Sheets, Slack, Square) via viaSocket. Once connected, click <strong>"📥 Fetch Reviews & Data"</strong> to ingest real reviews directly into your AI intelligence pipeline.
+              </div>
+            </div>
+
+            <div id="integrationsGrid" style="display:grid; grid-template-columns:repeat(2, 1fr); gap:16px;"></div>
+          </div>
+
+          <!-- ============================================================= -->
+          <!-- AI AUTOMATION WORKFLOWS (viaSocket Powered)                   -->
+          <!-- ============================================================= -->
+          <div class="card" style="margin-top:24px;">
+            <div class="card-header" style="flex-wrap:wrap; gap:12px;">
+              <div>
+                <div class="card-title" style="display:flex; align-items:center; gap:8px;">
+                  <span>⚡ ReviewPilot AI Automation Workflows</span>
+                  <span class="badge badge-emerald" style="font-size:11px;">viaSocket Skill Verified</span>
+                </div>
+                <div class="card-sub">Production-grade automated alert, daily digest, weekly reporting, and circuit breaker workflows powered by verified viaSocket Skill actions.</div>
+              </div>
+              <div style="display:flex; align-items:center; gap:10px;">
+                <div id="circuitBreakerBadge" style="display:inline-flex; align-items:center; gap:6px; padding:5px 12px; border-radius:20px; font-size:11.5px; font-weight:700; background:#ecfdf5; color:#065f46; border:1px solid #a7f3d0;">
+                  <span style="width:8px; height:8px; border-radius:50%; background:#10b981; display:inline-block;"></span>
+                  <span>Circuit Breaker: CLOSED (Healthy)</span>
+                </div>
+                <button id="btnResetCircuitBreaker" class="btn btn-xs btn-outline" style="display:none;" title="Reset Circuit Breaker">Reset Circuit Breaker</button>
+                <button id="btnRefreshWorkflows" class="btn btn-sm btn-outline">↻ Refresh Workflows</button>
+              </div>
+            </div>
+
+            <!-- Workflow Cards Grid -->
+            <div id="workflowsGrid" style="display:grid; grid-template-columns:repeat(2, 1fr); gap:16px; margin-top:8px;">
+              <!-- Dynamically populated by app.js -->
+            </div>
+
+            <!-- Real-time Test Output Console -->
+            <div id="workflowTestConsoleBox" style="margin-top:20px; display:none;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                <div style="font-weight:700; font-size:12.5px; color:var(--text-primary); display:flex; align-items:center; gap:6px;">
+                  <span>🧪 Live Workflow Execution Console</span>
+                  <span id="testConsoleStatusTag" class="badge badge-emerald" style="font-size:10px;">Execution Succeeded</span>
+                </div>
+                <button id="btnCloseTestConsole" class="btn btn-xs btn-ghost" style="color:var(--text-dim);">&times; Close Console</button>
+              </div>
+              <pre id="workflowTestConsoleOutput" style="background:#0f172a; color:#38bdf8; padding:14px; border-radius:8px; font-family:Consolas, Monaco, monospace; font-size:11.5px; line-height:1.5; max-height:260px; overflow-y:auto; border:1px solid #1e293b; margin:0;"></pre>
+            </div>
+
+            <!-- Recent Automation Execution Audit Log Table -->
+            <div style="margin-top:24px; padding-top:16px; border-top:1px solid var(--border-subtle);">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                <div>
+                  <div style="font-weight:700; font-size:13px; color:var(--text-primary);">Recent Automation Executions & Audit Telemetry</div>
+                  <div style="font-size:11.5px; color:var(--text-dim);">Immutable execution logs, delivery status, and idempotency tracking scoped to authorized restaurant data.</div>
+                </div>
+                <button id="btnClearConsoleRuns" class="btn btn-xs btn-outline">Clear View</button>
+              </div>
+              <div class="table-responsive" style="max-height:240px; overflow-y:auto; border:1px solid var(--border-subtle); border-radius:var(--radius-sm);">
+                <table class="data-table" style="font-size:12px; margin:0;">
+                  <thead>
+                    <tr>
+                      <th>Run ID</th>
+                      <th>Workflow</th>
+                      <th>Trigger Event</th>
+                      <th>Status</th>
+                      <th>Idempotency</th>
+                      <th>Recipient / Channel</th>
+                      <th>Executed At</th>
+                    </tr>
+                  </thead>
+                  <tbody id="automationRunsTableBody">
+                    <tr><td colspan="7" style="text-align:center; color:var(--text-dim); padding:20px;">Loading automation telemetry...</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================= -->
+        <!-- PANE 8: /settings                                                 -->
+        <!-- ================================================================= -->
+        <section id="pane-settings" class="tab-pane">
+          <!-- CSV Import Card -->
+          <div class="card" style="margin-bottom:20px;">
+            <div class="card-header">
+              <div>
+                <div class="card-title">Review Data Ingestion & CSV Import</div>
+                <div class="card-sub">Upload CSV reviews with flexible column mapping, validation, and error reporting.</div>
+              </div>
+              <a href="/api/import/template" class="btn btn-sm btn-outline" download>Download Sample CSV Template</a>
+            </div>
+
+            <div style="border: 2px dashed var(--border-strong); border-radius: var(--radius-md); padding: 32px 20px; text-align: center; cursor: pointer; background: #fff;" id="csvDropZone">
+              <input type="file" id="csvFileInput" accept=".csv" style="display:none;">
+              <div style="font-size: 28px; margin-bottom: 8px;">📁</div>
+              <div style="font-weight: 700; font-size: 14px; color: var(--text-primary);">Click or drag & drop CSV review file here</div>
+              <div style="font-size: 12px; color: var(--text-dim); margin-top: 4px;">Supports standard Google, Swiggy, Zomato, and custom restaurant review exports.</div>
+            </div>
+
+            <div id="importMappingBox" style="display:none; margin-top: 20px; padding: 16px; background: var(--bg-subtle); border-radius: var(--radius-sm);">
+              <div style="font-weight: 700; margin-bottom: 10px;">Step 4: Map CSV Columns</div>
+              <div id="columnMappingSelectors" style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 12px;"></div>
+              <button id="btnProcessImportMapped" class="btn btn-primary btn-sm" style="margin-top:14px;">Process Mapped Ingestion</button>
+            </div>
+
+            <div id="importResultNotice" style="display:none; margin-top: 20px;"></div>
+
+            <div style="margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--border-subtle); display:flex; justify-content:space-between; align-items:center;">
+              <div>
+                <div style="font-weight:700;">Demo Dataset Quick-Reload</div>
+                <div style="font-size:12px; color:var(--text-dim);">Reset database with Royal Spice Kitchen verified test dataset (20 accepted, safety alerts, Hinglish).</div>
+              </div>
+              <button id="btnReloadDemoData" class="btn btn-outline btn-sm">Reload Demo Dataset</button>
+            </div>
+          </div>
+
+          <!-- Team & RBAC -->
+          <div class="card" style="margin-bottom:20px;">
+            <div class="card-header">
+              <div>
+                <div class="card-title">Team Members & Role-Based Access Control (RBAC)</div>
+                <div class="card-sub">Roles: Restaurant Owner, Restaurant Manager, Outlet Manager, Staff Member.</div>
+              </div>
+              <button id="btnInviteTeamMember" class="btn btn-sm btn-primary">+ Invite Member</button>
+            </div>
+            <div class="table-container">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Assigned Role</th>
+                    <th>Assigned Outlets</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="teamTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Audit Logs -->
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">Immutable Audit Trail & Data Retention</div>
+                <div class="card-sub">Chronological security log of user logins, review imports, and status modifications.</div>
+              </div>
+            </div>
+            <div class="table-container">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Timestamp</th>
+                    <th>User ID</th>
+                    <th>Action</th>
+                    <th>Entity Type</th>
+                    <th>Details</th>
+                  </tr>
+                </thead>
+                <tbody id="auditLogsTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 4. MODALS & OVERLAYS                                                      -->
+  <!-- ========================================================================= -->
+
+  <!-- Modal: Review Detail & Reply Approval -->
+  <!-- Modal: Review Detail, Moderation & Reply Approval (Phase 3) -->
+  <div id="reviewDetailModal" class="modal-backdrop hidden">
+    <div class="modal-card" style="width:680px; max-width:95vw;">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title" id="mdlReviewId">Review Details & AI Telemetry</h3>
+          <div style="font-size:12px; color:var(--text-dim);" id="revDetailMeta">Customer Review Inspection</div>
+        </div>
+        <button class="btn btn-xs btn-outline modal-close-btn" data-target="reviewDetailModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <!-- Top Status Bar: Overall Stars, Outlet, Source, and Moderation Badge -->
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:12px;">
+          <div style="display:flex; gap:8px; align-items:center;">
+            <span class="badge" id="mdlReviewStars" style="font-size:14px; font-weight:800;">5★</span>
+            <span class="badge neutral" id="mdlReviewOutlet">Main Flagship</span>
+            <span class="badge neutral" id="mdlReviewDate">2026-10-18</span>
+            <span class="badge" id="mdlReviewSourceBadge">Google</span>
+          </div>
+          <div id="revDetailModerationBadge">
+            <span class="badge moderation-pending">Pending Review</span>
+          </div>
+        </div>
+
+        <!-- Category Sub-ratings (Food, Service, Cleanliness, Value) -->
+        <div style="background:var(--bg-subtle); border:1px solid var(--border-subtle); border-radius:10px; padding:12px; margin-bottom:14px;">
+          <div style="font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-bottom:6px;">Category Sub-Ratings</div>
+          <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:8px; text-align:center; font-size:11.5px;">
+            <div style="background:#fff; padding:6px; border-radius:6px; border:1px solid var(--border-subtle);">
+              <div style="color:var(--text-dim); font-size:10px;">Food Quality</div>
+              <strong id="revDetailFoodRating">5★</strong>
+            </div>
+            <div style="background:#fff; padding:6px; border-radius:6px; border:1px solid var(--border-subtle);">
+              <div style="color:var(--text-dim); font-size:10px;">Service</div>
+              <strong id="revDetailServiceRating">4★</strong>
+            </div>
+            <div style="background:#fff; padding:6px; border-radius:6px; border:1px solid var(--border-subtle);">
+              <div style="color:var(--text-dim); font-size:10px;">Cleanliness</div>
+              <strong id="revDetailCleanRating">5★</strong>
+            </div>
+            <div style="background:#fff; padding:6px; border-radius:6px; border:1px solid var(--border-subtle);">
+              <div style="color:var(--text-dim); font-size:10px;">Value</div>
+              <strong id="revDetailValueRating">4★</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Customer Verbatim -->
+        <div style="padding:14px; background:var(--bg-subtle); border-radius:var(--radius-sm); margin-bottom:14px;">
+          <div style="font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Customer Verbatim</div>
+          <div id="mdlReviewText" style="margin-top:4px; font-size:13.5px; color:var(--text-primary); line-height:1.5;"></div>
+        </div>
+
+        <!-- Customer Contact & Dish Details -->
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px; font-size:12px;">
+          <div style="padding:10px; background:var(--bg-subtle); border-radius:8px;">
+            <div style="color:var(--text-dim); font-size:11px;">Customer Contact Details</div>
+            <div style="font-weight:700;" id="revDetailCustomerName">-</div>
+            <div style="color:var(--emerald-primary);" id="revDetailCustomerEmail">No contact provided</div>
+          </div>
+          <div style="padding:10px; background:var(--bg-subtle); border-radius:8px;">
+            <div style="color:var(--text-dim); font-size:11px;">Dish / Item Ordered</div>
+            <div style="font-weight:700;" id="revDetailDish">-</div>
+            <div style="color:var(--text-dim);" id="revDetailVisitDate">-</div>
+          </div>
+        </div>
+
+        <!-- AI Extracted Facts vs Interpretations -->
+        <div style="margin-bottom:14px;">
+          <div style="font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-bottom:6px;">AI Extracted Facts vs Interpretations</div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; font-size:12.5px;">
+            <div style="padding:10px; border:1px solid var(--border-subtle); border-radius:var(--radius-sm);">
+              <strong>Confirmed Facts:</strong>
+              <div id="mdlFactualSummary" style="color:var(--text-muted); margin-top:3px;"></div>
+            </div>
+            <div style="padding:10px; border:1px solid var(--border-subtle); border-radius:var(--radius-sm);">
+              <strong>Inferred Hypothesis:</strong>
+              <div id="mdlInferredInterpretation" style="color:var(--text-muted); margin-top:3px;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Moderation Controls -->
+        <div style="padding:12px; background:#f8fafc; border:1px solid var(--border-subtle); border-radius:8px; margin-bottom:14px;">
+          <div style="font-size:11.5px; font-weight:700; color:var(--text-primary); margin-bottom:6px;">Review Moderation:</div>
+          <div style="display:flex; gap:8px;">
+            <button id="btnModApprove" class="btn btn-xs btn-success">✓ Approve for Insights</button>
+            <button id="btnModFlag" class="btn btn-xs btn-outline" style="color:#991b1b; border-color:#fca5a5;">🚩 Flag as Spam</button>
+            <button id="btnModPending" class="btn btn-xs btn-outline">Set Pending</button>
+          </div>
+        </div>
+
+        <!-- Suggested Personalized Reply & Non-Liability Guardrails -->
+        <div>
+          <div style="font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-bottom:4px;">Suggested Personalized Reply (Non-Liability Protected)</div>
+          <textarea id="mdlReplyText" class="textarea-input" rows="3"></textarea>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
+            <span class="badge positive" id="mdlReplyStatus">draft_generated</span>
+            <div style="display:flex; gap:6px;">
+              <button id="btnMdlCopyReply" class="btn btn-outline btn-xs">Copy Reply</button>
+              <button id="btnMdlApproveReply" class="btn btn-success btn-xs">Approve Reply</button>
+              <button id="btnMdlPublishReply" class="btn btn-primary btn-xs">Mark Published</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Root-Cause Investigation Report -->
+  <div id="investigationModal" class="modal-backdrop hidden">
+    <div class="modal-card modal-lg">
+      <div class="modal-header">
+        <h3 class="modal-title" id="mdlInvTitle">Root-Cause Investigation Report</h3>
+        <button class="btn btn-xs btn-outline modal-close-btn" data-target="investigationModal">&times;</button>
+      </div>
+      <div class="modal-body" id="mdlInvBody"></div>
+    </div>
+  </div>
+
+  <!-- Modal: Task Outcome Resolution -->
+  <div id="outcomeModal" class="modal-backdrop hidden">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Record Closed-Loop Operational Outcome</h3>
+        <button class="btn btn-xs btn-outline modal-close-btn" data-target="outcomeModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size:12.5px; color:var(--text-muted); margin-bottom:12px;">Log verified kitchen or packaging action results and observe the post-intervention rating delta.</p>
+        <div style="margin-bottom:12px;">
+          <label style="font-size:12px; font-weight:600;">Verified Operational Result</label>
+          <textarea id="outcomeResultText" class="textarea-input" rows="3" placeholder="e.g. Switched to 750ml leak-proof tubs; packaging complaints dropped to zero."></textarea>
+        </div>
+        <div style="margin-bottom:16px;">
+          <label style="font-size:12px; font-weight:600;">Post-Intervention Star Rating (e.g. 4.6★)</label>
+          <input type="number" step="0.1" min="1" max="5" id="outcomeAfterRating" class="input-text" placeholder="4.6">
+        </div>
+        <button id="btnSubmitOutcome" class="btn btn-primary btn-sm" style="width:100%;">Record & Close Loop</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Manual Review Entry -->
+  <div id="manualReviewModal" class="modal-backdrop hidden">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">+ Add Customer Review Manually</h3>
+        <button class="btn btn-xs btn-outline modal-close-btn" data-target="manualReviewModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="manualReviewForm">
+          <div style="margin-bottom:10px;">
+            <label style="font-size:12px; font-weight:600;">Outlet</label>
+            <select id="manOutlet" class="select-input" required></select>
+          </div>
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-bottom:10px;">
+            <div>
+              <label style="font-size:12px; font-weight:600;">Star Rating (1.0 to 5.0)</label>
+              <input type="number" step="0.5" min="1" max="5" id="manRating" class="input-text" required value="4">
+            </div>
+            <div>
+              <label style="font-size:12px; font-weight:600;">Date</label>
+              <input type="date" id="manDate" class="input-text" required>
+            </div>
+          </div>
+          <div style="margin-bottom:10px;">
+            <label style="font-size:12px; font-weight:600;">Customer Name</label>
+            <input type="text" id="manReviewer" class="input-text" placeholder="e.g. Amit Sharma">
+          </div>
+          <div style="margin-bottom:10px;">
+            <label style="font-size:12px; font-weight:600;">Review Verbatim Text</label>
+            <textarea id="manText" class="textarea-input" rows="3" required placeholder="Enter customer feedback text..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-sm" style="width:100%;">Save & Run AI Analysis</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Add New Outlet -->
+  <div id="newOutletModal" class="modal-backdrop hidden">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">+ Add New Restaurant Outlet</h3>
+        <button class="btn btn-xs btn-outline modal-close-btn" data-target="newOutletModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="formNewOutlet">
+          <div class="form-group">
+            <label class="form-label">Outlet Name</label>
+            <input type="text" id="newOutletName" class="input-text" required placeholder="e.g. Sector 29 Brewpub">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Outlet Code</label>
+            <input type="text" id="newOutletCode" class="input-text" placeholder="e.g. S29-04">
+          </div>
+          <div class="form-group">
+            <label class="form-label">City</label>
+            <input type="text" id="newOutletCity" class="input-text" required placeholder="e.g. Gurgaon">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Timezone</label>
+            <select id="newOutletTimezone" class="select-input">
+              <option value="Asia/Kolkata">Asia/Kolkata (IST)</option>
+              <option value="America/New_York">America/New_York (EST)</option>
+              <option value="America/Los_Angeles">America/Los_Angeles (PST)</option>
+              <option value="Europe/London">Europe/London (GMT)</option>
+              <option value="Asia/Dubai">Asia/Dubai (GST)</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary btn-sm" style="width:100%;">Create Outlet</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Invite Team Member -->
+  <div id="inviteTeamModal" class="modal-backdrop hidden">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">+ Invite Team Member</h3>
+        <button class="btn btn-xs btn-outline modal-close-btn" data-target="inviteTeamModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="formInviteTeam">
+          <div class="form-group">
+            <label class="form-label">Full Name</label>
+            <input type="text" id="inviteName" class="input-text" required placeholder="e.g. Priya Mehta">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email" id="inviteEmail" class="input-text" required placeholder="e.g. priya@royalspice.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Assigned Role</label>
+            <select id="inviteRole" class="select-input">
+              <option value="restaurant_manager">Restaurant Manager</option>
+              <option value="outlet_manager">Outlet Manager</option>
+              <option value="staff">Floor / Kitchen Staff</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary btn-sm" style="width:100%;">Send Team Invitation</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Integration Configuration -->
+  <div id="integrationConfigModal" class="modal-backdrop hidden">
+    <div class="modal-card" style="width: 580px; max-width: 95vw;">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title" id="cfgModalTitle">Configure viaSocket Integration</h3>
+          <div style="font-size:12px; color:var(--text-dim); margin-top:3px;" id="cfgModalSubtitle">Fetch and map account channels, sheets, and notification formats.</div>
+        </div>
+        <button class="btn btn-xs btn-outline modal-close-btn" data-target="integrationConfigModal">&times;</button>
+      </div>
+      <div class="modal-body" style="padding-top:14px;">
+        <div id="cfgLoadingNotice" style="text-align:center; padding:28px 0; color:var(--text-muted);">
+          <div style="display:inline-block; font-size:26px; margin-bottom:8px;">⚡</div>
+          <div style="font-size:13px; font-weight:600; color:var(--text-primary);">Fetching live options & account metadata via viaSocket...</div>
+          <div style="font-size:11.5px; color:var(--text-dim); margin-top:4px;">Connecting to authorized service to read spreadsheets, channels, and endpoints.</div>
+        </div>
+        <div id="cfgFormContent" style="display:none;"></div>
+      </div>
+      <div class="modal-footer">
+        <span style="font-size:11px; color:var(--text-dim); margin-right:auto;" id="cfgAuthIdDisplay"></span>
+        <button class="btn btn-sm btn-outline modal-close-btn" data-target="integrationConfigModal">Cancel</button>
+        <button id="btnSaveIntegrationConfig" class="btn btn-sm btn-primary">✓ Save Configuration</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Workflow Edit & Configuration (Phase 6) -->
+  <div id="workflowConfigModal" class="modal-backdrop hidden">
+    <div class="modal-card" style="width: 620px; max-width: 95vw;">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title" id="wfModalTitle" style="display:flex; align-items:center; gap:8px;">
+            <span>⚙️</span>
+            <span>Configure Automation Workflow</span>
+          </h3>
+          <div style="font-size:12px; color:var(--text-dim); margin-top:3px;" id="wfModalSubtitle">
+            Customize trigger conditions, rating thresholds, delivery channels, and alert policies.
+          </div>
+        </div>
+        <button class="btn btn-xs btn-outline modal-close-btn" data-target="workflowConfigModal">&times;</button>
+      </div>
+
+      <div class="modal-body" style="padding-top:14px; max-height:calc(85vh - 120px); overflow-y:auto;">
+        <input type="hidden" id="cfgWfKey">
+        <input type="hidden" id="cfgWfRuleId">
+
+        <!-- Workflow Status & Identity Pill Banner -->
+        <div style="background:var(--bg-subtle); border:1px solid var(--border-subtle); border-radius:var(--radius-md); padding:12px 14px; margin-bottom:16px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span id="cfgWfKeyBadge" class="badge badge-emerald" style="font-family:monospace; font-size:11px; text-transform:uppercase;">WORKFLOW_A</span>
+            <span id="cfgWfActionBadge" class="badge" style="background:#e0f2fe; color:#0369a1; font-size:10.5px; font-family:monospace;">action: row1jrbor</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <label for="cfgWfEnabled" style="font-size:12px; font-weight:600; color:var(--text-primary); cursor:pointer;">Workflow Active:</label>
+            <input type="checkbox" id="cfgWfEnabled" style="width:16px; height:16px; cursor:pointer; accent-color:var(--emerald-primary);">
+          </div>
+        </div>
+
+        <!-- Workflow Name & Description -->
+        <div style="margin-bottom:14px;">
+          <label class="form-label" style="font-size:12px; font-weight:700;">Workflow Display Name *</label>
+          <input type="text" id="cfgWfName" class="input-text" placeholder="e.g. Workflow A: Immediate Negative Review & Safety Alert">
+        </div>
+
+        <div style="margin-bottom:16px;">
+          <label class="form-label" style="font-size:12px; font-weight:700;">Operational Description</label>
+          <textarea id="cfgWfDescription" class="textarea-input" rows="2" placeholder="Explain the operational purpose of this automation..."></textarea>
+        </div>
+
+        <!-- Dynamic Trigger Settings Block -->
+        <div style="background:#fff; border:1px solid var(--border-subtle); border-radius:var(--radius-md); padding:14px; margin-bottom:16px; box-shadow:var(--shadow-xs);">
+          <div style="font-size:12.5px; font-weight:700; color:var(--text-primary); margin-bottom:10px; display:flex; align-items:center; gap:6px;">
+            <span>⚡ Trigger Conditions & Policy Thresholds</span>
+          </div>
+
+          <!-- Fields for Workflow A: Negative Review Alert -->
+          <div id="cfgWfFieldsA" style="display:none;">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px;">
+              <div>
+                <label class="form-label" style="font-size:11.5px; font-weight:600;">Alert Star Rating Threshold</label>
+                <select id="cfgWfMinRating" class="select-input">
+                  <option value="1">≤ 1 Star (Only Critical 1★ Negatives)</option>
+                  <option value="2" selected>≤ 2 Stars (1★ & 2★ Low Ratings - Recommended)</option>
+                  <option value="3">≤ 3 Stars (1★, 2★ & 3★ Neutral/Low Ratings)</option>
+                </select>
+                <div style="font-size:10.5px; color:var(--text-dim); margin-top:3px;">Reviews with rating at or below this value trigger an alert.</div>
+              </div>
+              <div>
+                <label class="form-label" style="font-size:11.5px; font-weight:600;">Severity Level Threshold</label>
+                <select id="cfgWfSeverity" class="select-input">
+                  <option value="High" selected>High Priority (Standard Negative Escalation)</option>
+                  <option value="Critical">Critical Priority Only</option>
+                  <option value="All">All Flagged Grievances</option>
+                </select>
+                <div style="font-size:10.5px; color:var(--text-dim); margin-top:3px;">AI severity classification threshold.</div>
+              </div>
+            </div>
+
+            <div style="background:#fef2f2; border:1px solid #fecaca; border-radius:var(--radius-sm); padding:10px 12px;">
+              <label style="display:flex; align-items:flex-start; gap:8px; cursor:pointer; font-size:12px; color:#991b1b; font-weight:600; margin:0;">
+                <input type="checkbox" id="cfgWfFoodSafety" checked style="margin-top:2px; accent-color:#ef4444;">
+                <div>
+                  <span>Always escalate Food Safety & Illness allegations immediately</span>
+                  <div style="font-size:11px; font-weight:400; color:#b91c1c; margin-top:2px;">
+                    Keywords like "sick", "spoiled", "poison", "hygiene" will alert leadership regardless of star rating.
+                  </div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Fields for Workflow B: Daily Restaurant Summary -->
+          <div id="cfgWfFieldsB" style="display:none;">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:10px;">
+              <div>
+                <label class="form-label" style="font-size:11.5px; font-weight:600;">Daily Schedule Dispatch Time</label>
+                <input type="time" id="cfgWfDailyTime" class="input-text" value="21:00">
+                <div style="font-size:10.5px; color:var(--text-dim); margin-top:3px;">24-hour restaurant timezone format (default 21:00).</div>
+              </div>
+              <div>
+                <label class="form-label" style="font-size:11.5px; font-weight:600;">Digest Scope</label>
+                <select id="cfgWfDailyFrequency" class="select-input">
+                  <option value="daily" selected>Daily Digest (Today's Feedback)</option>
+                  <option value="shift">End of Night Shift</option>
+                </select>
+              </div>
+            </div>
+            <div style="background:var(--bg-subtle); border:1px solid var(--border-subtle); border-radius:var(--radius-sm); padding:8px 12px; font-size:11.5px; color:var(--text-secondary);">
+              ✓ Automatically falls back to trailing 7-day baseline if zero new reviews were received on the reporting date.
+            </div>
+          </div>
+
+          <!-- Fields for Workflow C: Weekly Improvement Report -->
+          <div id="cfgWfFieldsC" style="display:none;">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:10px;">
+              <div>
+                <label class="form-label" style="font-size:11.5px; font-weight:600;">Day of Week</label>
+                <select id="cfgWfWeeklyDay" class="select-input">
+                  <option value="Monday" selected>Monday Morning (Executive Brief)</option>
+                  <option value="Sunday">Sunday Night</option>
+                  <option value="Friday">Friday Strategy</option>
+                </select>
+              </div>
+              <div>
+                <label class="form-label" style="font-size:11.5px; font-weight:600;">Dispatch Time</label>
+                <input type="time" id="cfgWfWeeklyTime" class="input-text" value="08:00">
+              </div>
+            </div>
+            <div style="background:var(--bg-subtle); border:1px solid var(--border-subtle); border-radius:var(--radius-sm); padding:8px 12px; font-size:11.5px; color:var(--text-secondary);">
+              ✓ Computes week-over-week deltas, closed-loop task outcomes, and estimated revenue protected (₹).
+            </div>
+          </div>
+
+          <!-- Fields for Workflow D: Integration Failure & Circuit Breaker -->
+          <div id="cfgWfFieldsD" style="display:none;">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:10px;">
+              <div>
+                <label class="form-label" style="font-size:11.5px; font-weight:600;">Circuit Breaker Failure Threshold</label>
+                <input type="number" id="cfgWfFailureThreshold" class="input-text" min="1" max="10" value="3">
+                <div style="font-size:10.5px; color:var(--text-dim); margin-top:3px;">Consecutive failures before tripping breaker to OPEN.</div>
+              </div>
+              <div>
+                <label class="form-label" style="font-size:11.5px; font-weight:600;">Max Bounded Exponential Retries</label>
+                <input type="number" id="cfgWfMaxRetries" class="input-text" min="1" max="5" value="3">
+                <div style="font-size:10.5px; color:var(--text-dim); margin-top:3px;">Attempts before giving up and escalating to admin.</div>
+              </div>
+            </div>
+            <div style="background:#fffbeb; border:1px solid #fde68a; border-radius:var(--radius-sm); padding:8px 12px; font-size:11.5px; color:#92400e;">
+              🛡️ Strips all Bearer tokens and passwords before logging diagnostic telemetry.
+            </div>
+          </div>
+        </div>
+
+        <!-- Notification Channel & Delivery Destination Block -->
+        <div style="background:#fff; border:1px solid var(--border-subtle); border-radius:var(--radius-md); padding:14px; margin-bottom:16px; box-shadow:var(--shadow-xs);">
+          <div style="font-size:12.5px; font-weight:700; color:var(--text-primary); margin-bottom:10px; display:flex; align-items:center; gap:6px;">
+            <span>📬 Notification Channel & Delivery Destination</span>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px;">
+            <div>
+              <label class="form-label" style="font-size:11.5px; font-weight:600;">Primary Delivery Channel</label>
+              <select id="cfgWfChannel" class="select-input">
+                <option value="slack">Slack (viaSocket chat.postMessage)</option>
+                <option value="gmail">Gmail (viaSocket sendEmail)</option>
+                <option value="in_app">Executive In-App Alert Feed</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label" style="font-size:11.5px; font-weight:600;" id="cfgWfTargetLabel">Channel / Recipient Target *</label>
+
+              <!-- When Slack is active: Live channel dropdown -->
+              <div id="cfgWfSlackChannelWrapper" style="display:none;">
+                <div style="display:flex; gap:6px;">
+                  <select id="cfgWfSlackChannelSelect" class="select-input" style="flex:1;">
+                    <option value="">Fetching live Slack channels...</option>
+                  </select>
+                  <button type="button" id="btnRefreshWfSlackChannels" class="btn btn-xs btn-outline" title="Refresh live Slack channels" style="padding:0 8px;">↻</button>
+                </div>
+                <div id="cfgWfSlackCustomInputGroup" style="display:none; margin-top:6px;">
+                  <input type="text" id="cfgWfSlackCustomChannel" class="input-text" placeholder="#custom-channel or channel ID">
+                </div>
+                <div style="font-size:10.5px; color:var(--text-dim); margin-top:4px; display:flex; justify-content:space-between; align-items:center;">
+                  <span id="cfgWfSlackSyncBadge" class="badge badge-emerald" style="font-size:9.5px; padding:2px 6px;">● Live Workspace Synced</span>
+                  <span id="cfgWfSlackCount" style="color:var(--text-dim); font-size:10px;">Loading...</span>
+                </div>
+              </div>
+
+              <!-- When Gmail / In-App or fallback: standard text target -->
+              <div id="cfgWfTextTargetWrapper">
+                <input type="text" id="cfgWfTarget" class="input-text" placeholder="#kitchen-alerts">
+                <div style="font-size:10.5px; color:var(--text-dim); margin-top:3px;" id="cfgWfTargetHelp">e.g. #kitchen-alerts or channel ID</div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <label class="form-label" style="font-size:11.5px; font-weight:600;">Escalation Role & Admin Fallback</label>
+            <select id="cfgWfEscalateRole" class="select-input">
+              <option value="owner@royalspice.com">Restaurant Owner (owner@royalspice.com)</option>
+              <option value="gm@royalspice.com">General Manager (gm@royalspice.com)</option>
+              <option value="chef@royalspice.com">Head Executive Chef (chef@royalspice.com)</option>
+            </select>
+            <div style="font-size:10.5px; color:var(--text-dim); margin-top:3px;">Receives circuit breaker alerts and critical escalation dispatches.</div>
+          </div>
+        </div>
+
+        <!-- Real-time Plain English Summary Callout -->
+        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:var(--radius-sm); padding:10px 14px; font-size:11.5px; color:var(--text-secondary); line-height:1.5;" id="cfgWfSummaryCallout">
+          ⚡ <strong>Summary:</strong> <span id="cfgWfSummaryText">Loading summary...</span>
+        </div>
+      </div>
+
+      <div class="modal-footer" style="display:flex; justify-content:space-between; align-items:center;">
+        <button id="btnModalTestWorkflow" class="btn btn-sm btn-outline" style="font-weight:600;">
+          🧪 Test This Workflow
+        </button>
+        <div style="display:flex; gap:8px;">
+          <button class="btn btn-sm btn-outline modal-close-btn" data-target="workflowConfigModal">Cancel</button>
+          <button id="btnSaveWorkflowConfig" class="btn btn-sm btn-primary" style="font-weight:600;">✓ Save Configuration</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: viaSocket App Connect & OAuth Launcher -->
+  <div id="viasocketConnectModal" class="modal-backdrop hidden">
+    <div class="modal-card" style="width: 520px; max-width: 95vw;">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title" id="connectModalTitle">Connect via viaSocket</h3>
+          <div style="font-size:12px; color:var(--text-dim); margin-top:3px;" id="connectModalSubtitle">Authorize third-party restaurant integrations.</div>
+        </div>
+        <button class="btn btn-xs btn-outline modal-close-btn" data-target="viasocketConnectModal">&times;</button>
+      </div>
+      <div class="modal-body" style="padding-top:14px;">
+        <div style="background:var(--bg-subtle); border:1px solid var(--border-subtle); border-radius:var(--radius-md); padding:14px; margin-bottom:16px;">
+          <div style="font-size:13px; font-weight:600; color:var(--text-primary); margin-bottom:4px;" id="connectAppNameDisplay">App Authorization</div>
+          <div style="font-size:12px; color:var(--text-secondary); line-height:1.5;" id="connectAppDescDisplay">Authorize ReviewPilot AI to access your review streams securely through viaSocket.</div>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:18px;">
+          <button id="btnLaunchConnectPopup" class="btn btn-primary" style="width:100%; justify-content:center; padding:12px; font-size:13.5px; font-weight:600;">
+            🚀 Open viaSocket OAuth Consent Popup
+          </button>
+          <div style="font-size:11px; color:var(--text-dim); text-align:center;">
+            Opens the official viaSocket authorization popup directly in your browser.
+          </div>
+        </div>
+
+        <div style="position:relative; text-align:center; margin:16px 0;">
+          <hr style="border:none; border-top:1px solid var(--border-subtle);">
+          <span style="position:absolute; top:-9px; left:50%; transform:translateX(-50%); background:var(--bg-surface); padding:0 10px; font-size:11px; color:var(--text-dim);">OR CONNECT MANUALLY</span>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <div>
+            <label class="form-label" style="font-size:12px;">Use Existing viaSocket Auth ID (Optional)</label>
+            <div style="display:flex; gap:8px;">
+              <input type="text" id="manualAuthIdInput" class="form-input" placeholder="e.g. auth_google_sheets_live_01" style="font-family:monospace; font-size:12px;">
+              <button id="btnSaveManualAuthId" class="btn btn-sm btn-outline">Link Auth</button>
+            </div>
+            <span style="font-size:11px; color:var(--text-dim);">If you already created a connection in your viaSocket dashboard, enter its auth_id here.</span>
+          </div>
+
+          <div style="padding-top:8px; border-top:1px dashed var(--border-subtle);">
+            <button id="btnConnectTestSandbox" class="btn btn-sm btn-ghost" style="width:100%; justify-content:center; color:var(--emerald-primary); font-size:12px;">
+              ⚡ Connect Verified Sandbox Account (Instant 1-Click Test)
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-sm btn-outline modal-close-btn" data-target="viasocketConnectModal">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: First-time Onboarding Wizard (8 Steps) -->
+  <div id="onboardingModal" class="modal-backdrop hidden">
+    <div class="modal-card modal-lg">
+      <div class="modal-header">
+        <h3 class="modal-title">First-Time Setup: 8-Step Onboarding Wizard</h3>
+        <button class="btn btn-xs btn-outline modal-close-btn" data-target="onboardingModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div style="display:flex; gap:8px; margin-bottom:16px; overflow-x:auto; padding-bottom:6px;" id="onboardingStepsIndicator">
+          <span class="badge positive">1. Org</span>
+          <span class="badge positive">2. Outlets</span>
+          <span class="badge positive">3. Review Source</span>
+          <span class="badge positive">4. Map Columns</span>
+          <span class="badge positive">5. Validate</span>
+          <span class="badge positive">6. AI Analysis</span>
+          <span class="badge positive">7. Thresholds</span>
+          <span class="badge positive">8. First Report</span>
+        </div>
+        <div id="onboardingStepContent" style="padding:14px; background:var(--bg-subtle); border-radius:var(--radius-sm); min-height:220px;"></div>
+      </div>
+      <div class="modal-footer">
+        <button id="btnOnboardingPrev" class="btn btn-outline btn-sm">Previous</button>
+        <button id="btnOnboardingNext" class="btn btn-primary btn-sm">Next Step</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal: QR Code & Table Poster Generator (Phase 3) -->
+  <div id="qrCodeModal" class="modal-backdrop hidden">
+    <div class="modal-card" style="width:480px; max-width:95vw; text-align:center;">
+      <div class="modal-header">
+        <h3 class="modal-title">Customer Feedback QR Code</h3>
+        <button class="btn btn-xs btn-outline modal-close-btn" data-target="qrCodeModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size:13px; color:var(--text-muted); margin-bottom:16px;">
+          Guests can scan this code to submit private dining feedback directly from their phone. No login required.
+        </p>
+
+        <div style="width:200px; height:200px; margin:0 auto 16px auto; padding:10px; border:2px dashed #059669; border-radius:12px; background:#fff; display:flex; align-items:center; justify-content:center;">
+          <img id="modalQrImage" alt="QR Code" style="width:100%; height:100%; object-fit:contain;">
+        </div>
+
+        <div style="background:var(--bg-subtle); padding:8px 12px; border-radius:8px; font-size:12px; word-break:break-all; font-family:monospace; margin-bottom:16px; border:1px solid var(--border-subtle);" id="modalQrUrlText">
+          http://localhost:3005/r/royal-spice-kitchen
+        </div>
+
+        <div style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap;">
+          <button id="btnCopyReviewUrl" class="btn btn-sm btn-outline">📋 Copy Link</button>
+          <button id="btnDownloadQrPng" class="btn btn-sm btn-primary">💾 Download PNG</button>
+          <button id="btnOpenPosterPage" class="btn btn-sm btn-success">🖨️ Table Poster</button>
+        </div>
+      </div>
+    </div>
+  <!-- Modal: Create / Edit Task (Phase 5) -->
+  <div id="taskModal" class="modal-backdrop hidden">
+    <div class="modal-card" style="width:540px; max-width:95vw;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="taskModalTitle">Create Operational Playbook Task</h3>
+        <button class="btn btn-xs btn-outline modal-close-btn" data-target="taskModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="taskEditId">
+        <div class="form-group" style="margin-bottom:12px;">
+          <label class="form-label" style="font-size:12px; font-weight:700;">Task Title *</label>
+          <input type="text" id="taskTitleInput" class="form-input" placeholder="e.g. Audit Dispatch Container Seal & Thermal Liners">
+        </div>
+        <div class="form-group" style="margin-bottom:12px;">
+          <label class="form-label" style="font-size:12px; font-weight:700;">Actionable Description / SOP *</label>
+          <textarea id="taskDescInput" class="form-input" rows="3" placeholder="Specify station requirements, root cause finding, and verification checklist..."></textarea>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px;">
+          <div class="form-group">
+            <label class="form-label" style="font-size:12px; font-weight:700;">Priority Level</label>
+            <select id="taskPriorityInput" class="form-input">
+              <option value="urgent">Urgent</option>
+              <option value="high">High</option>
+              <option value="medium" selected>Medium</option>
+              <option value="low">Low</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" style="font-size:12px; font-weight:700;">Due Date</label>
+            <input type="date" id="taskDueDateInput" class="form-input">
+          </div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px;">
+          <div class="form-group">
+            <label class="form-label" style="font-size:12px; font-weight:700;">Assignee (Staff / Role)</label>
+            <input type="text" id="taskAssigneeInput" class="form-input" placeholder="e.g. chef@royalspice.com or Head Chef">
+          </div>
+          <div class="form-group">
+            <label class="form-label" style="font-size:12px; font-weight:700;">Linked Source Reviews (IDs)</label>
+            <input type="text" id="taskLinkedReviewsInput" class="form-input" placeholder="e.g. REV-104, REV-113">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-sm btn-outline modal-close-btn" data-target="taskModal">Cancel</button>
+        <button class="btn btn-sm btn-primary" onclick="submitTaskForm()">Save Task</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Resolve Task Outcome (Phase 5) -->
+  <div id="taskOutcomeModal" class="modal-backdrop hidden">
+    <div class="modal-card" style="width:480px; max-width:95vw;">
+      <div class="modal-header">
+        <h3 class="modal-title">Record Task Outcome & Post-Intervention Telemetry</h3>
+        <button class="btn btn-xs btn-outline modal-close-btn" data-target="taskOutcomeModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="outcomeTaskId">
+        <p style="font-size:13px; color:var(--text-secondary); margin-bottom:14px;" id="outcomeTaskTitleDisplay"></p>
+        <div class="form-group" style="margin-bottom:14px;">
+          <label class="form-label" style="font-size:12px; font-weight:700;">Documented Resolution Notes *</label>
+          <textarea id="taskActualResultInput" class="form-input" rows="3" placeholder="Describe the physical fix or SOP change implemented (e.g. Replaced container vendor with snap-lock 750ml bowls)..."></textarea>
+        </div>
+        <div class="form-group" style="margin-bottom:14px;">
+          <label class="form-label" style="font-size:12px; font-weight:700;">Post-Intervention Average Rating (Optional Benchmark)</label>
+          <input type="number" step="0.1" min="1" max="5" id="taskAfterRatingInput" class="form-input" placeholder="e.g. 4.6">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-sm btn-outline modal-close-btn" data-target="taskOutcomeModal">Cancel</button>
+        <button class="btn btn-sm btn-success" onclick="submitTaskOutcome()">✓ Resolve & Close Task</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Set New Goal (Phase 5) -->
+  <div id="goalModal" class="modal-backdrop hidden">
+    <div class="modal-card" style="width:520px; max-width:95vw;">
+      <div class="modal-header">
+        <h3 class="modal-title">Set Restaurant Growth Goal</h3>
+        <button class="btn btn-xs btn-outline modal-close-btn" data-target="goalModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group" style="margin-bottom:12px;">
+          <label class="form-label" style="font-size:12px; font-weight:700;">Goal Type *</label>
+          <select id="goalTypeInput" class="form-input" onchange="toggleGoalTypeFields()">
+            <option value="improve_rating">Improve Average Rating</option>
+            <option value="reduce_negative_service">Reduce Negative Service Reviews</option>
+            <option value="reduce_dish_complaints">Reduce Complaints About a Specific Dish</option>
+            <option value="increase_reviews">Increase Review Collection Volume</option>
+          </select>
+        </div>
+        <div class="form-group" style="margin-bottom:12px;">
+          <label class="form-label" style="font-size:12px; font-weight:700;">Goal Title *</label>
+          <input type="text" id="goalTitleInput" class="form-input" placeholder="e.g. Reach 4.5★ Average Rating for October">
+        </div>
+        <div id="goalDishGroup" class="form-group" style="margin-bottom:12px; display:none;">
+          <label class="form-label" style="font-size:12px; font-weight:700;">Specific Dish Name</label>
+          <input type="text" id="goalDishNameInput" class="form-input" placeholder="e.g. Prawn Curry or Butter Chicken">
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px;">
+          <div class="form-group">
+            <label class="form-label" style="font-size:12px; font-weight:700;">Target Value *</label>
+            <input type="number" step="0.1" id="goalTargetValueInput" class="form-input" placeholder="e.g. 4.5 or 0">
+          </div>
+          <div class="form-group">
+            <label class="form-label" style="font-size:12px; font-weight:700;">Baseline Value</label>
+            <input type="number" step="0.1" id="goalBaselineValueInput" class="form-input" placeholder="e.g. 3.8">
+          </div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px;">
+          <div class="form-group">
+            <label class="form-label" style="font-size:12px; font-weight:700;">Start Date</label>
+            <input type="date" id="goalStartDateInput" class="form-input">
+          </div>
+          <div class="form-group">
+            <label class="form-label" style="font-size:12px; font-weight:700;">Target End Date</label>
+            <input type="date" id="goalEndDateInput" class="form-input">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-sm btn-outline modal-close-btn" data-target="goalModal">Cancel</button>
+        <button class="btn btn-sm btn-primary" onclick="submitGoalForm()">Create Goal</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- Controller Script -->
+  <script src="/app.js?v=2.3.0"></script>
+</body>
+</html>
