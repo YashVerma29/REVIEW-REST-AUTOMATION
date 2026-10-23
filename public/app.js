@@ -3565,7 +3565,7 @@ async function fetchAutomations() {
       }
 
       return `
-        <div class="workflow-card card" style="background:#fff; border:1px solid ${isEnabled ? 'var(--border-subtle)' : '#f1f5f9'}; opacity:${isEnabled ? '1' : '0.85'}; padding:16px; border-radius:var(--radius-md); display:flex; flex-direction:column; justify-content:space-between; box-shadow:var(--shadow-xs);">
+        <div class="workflow-card card" style="background:#fff; border:1px solid ${isEnabled ? 'var(--border-subtle)' : '#fef3c7'}; opacity:${isEnabled ? '1' : '0.92'}; padding:16px; border-radius:var(--radius-md); display:flex; flex-direction:column; justify-content:space-between; box-shadow:var(--shadow-xs);">
           <div>
             <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px;">
               <div style="display:flex; align-items:center; gap:8px;">
@@ -3576,12 +3576,26 @@ async function fetchAutomations() {
                 </div>
               </div>
               <div style="display:flex; align-items:center; gap:8px;">
-                <span class="badge ${isEnabled ? 'badge-emerald' : 'badge-slate'}" style="font-size:10px;">
-                  ${isEnabled ? 'Active' : 'Paused'}
-                </span>
-                <input type="checkbox" class="wf-toggle-checkbox" data-key="${wf.key}" ${isEnabled ? 'checked' : ''} style="cursor:pointer; width:16px; height:16px; accent-color:var(--emerald-primary);">
+                <button type="button" class="btn-toggle-wf-badge badge ${isEnabled ? 'badge-emerald' : 'badge-amber'}" data-key="${wf.key}" data-enabled="${isEnabled ? 'true' : 'false'}" style="font-size:11px; cursor:pointer; border:none; padding:4px 9px; font-weight:700; border-radius:12px;" title="Click to ${isEnabled ? 'Pause' : 'Activate'} Workflow">
+                  ${isEnabled ? '● Active' : '⏸ Paused'}
+                </button>
+                <label style="position:relative; display:inline-block; width:34px; height:18px; margin:0; cursor:pointer;" title="${isEnabled ? 'Click to Pause Workflow' : 'Click to Resume Workflow'}">
+                  <input type="checkbox" class="wf-toggle-checkbox" data-key="${wf.key}" ${isEnabled ? 'checked' : ''} style="opacity:0; width:0; height:0; position:absolute;">
+                  <span style="position:absolute; top:0; left:0; right:0; bottom:0; background-color:${isEnabled ? 'var(--emerald-primary, #059669)' : '#cbd5e1'}; border-radius:18px; transition:0.25s;">
+                    <span style="position:absolute; height:14px; width:14px; left:${isEnabled ? '17px' : '2px'}; bottom:2px; background-color:white; border-radius:50%; transition:0.25s; box-shadow:0 1px 2px rgba(0,0,0,0.25);"></span>
+                  </span>
+                </label>
               </div>
             </div>
+
+            ${!isEnabled ? `
+              <div style="background:#fffbeb; border:1px solid #fde68a; color:#92400e; padding:6px 10px; border-radius:var(--radius-sm); font-size:11.5px; margin-bottom:12px; display:flex; align-items:center; justify-content:space-between; gap:6px;">
+                <div style="display:flex; align-items:center; gap:6px;">
+                  <span>⏸️</span> <span><strong>Workflow Paused:</strong> Automatic executions & alerts are paused.</span>
+                </div>
+                <button class="btn btn-xs btn-outline btn-toggle-wf-action" data-key="${wf.key}" data-action="resume" style="padding:2px 8px; font-size:11px; background:#fff; border-color:#059669; color:#059669; font-weight:700;">▶️ Resume</button>
+              </div>
+            ` : ''}
 
             <p style="font-size:12px; color:var(--text-secondary); margin-bottom:12px; line-height:1.45;">
               ${escapeHtml(wf.description)}
@@ -3610,6 +3624,15 @@ async function fetchAutomations() {
               ${actionBadge}
             </div>
             <div style="display:flex; gap:6px;">
+              ${isEnabled ? `
+                <button class="btn btn-xs btn-outline btn-toggle-wf-action" data-key="${wf.key}" data-action="pause" style="font-weight:600; display:inline-flex; align-items:center; gap:4px; color:#b45309; border-color:#fde68a; background:#fffbeb;" title="Pause this workflow from triggering">
+                  ⏸️ Pause
+                </button>
+              ` : `
+                <button class="btn btn-xs btn-outline btn-toggle-wf-action" data-key="${wf.key}" data-action="resume" style="font-weight:600; display:inline-flex; align-items:center; gap:4px; color:#059669; border-color:#a7f3d0; background:#ecfdf5;" title="Resume and reactivate this workflow">
+                  ▶️ Resume
+                </button>
+              `}
               <button class="btn btn-xs btn-outline btn-configure-workflow" data-key="${wf.key}" style="font-weight:600; display:inline-flex; align-items:center; gap:4px;" title="Edit trigger thresholds, delivery channels, and recipients">
                 ⚙️ Configure / Edit
               </button>
@@ -3657,22 +3680,44 @@ async function fetchAutomations() {
     }
 
     // 4. Attach Event Listeners
-    // Toggle Workflow Switch
+    // Toggle Workflow helper
+    window.toggleWorkflowStatus = async function(key, enabled) {
+      try {
+        await api(`/api/automations/workflows/${key}/toggle`, {
+          method: 'PATCH',
+          body: JSON.stringify({ is_enabled: enabled })
+        });
+        showToast(enabled ? `Workflow ${key.toUpperCase()} resumed & active!` : `Workflow ${key.toUpperCase()} paused. Triggers suspended.`, enabled ? 'success' : 'info');
+        await fetchAutomations();
+      } catch (err) {
+        showToast(`Failed to update workflow: ${err.message}`, 'error');
+      }
+    };
+
+    // Toggle Workflow Checkbox
     document.querySelectorAll('.wf-toggle-checkbox').forEach(cb => {
       cb.addEventListener('change', async (e) => {
         const key = e.target.getAttribute('data-key');
         const enabled = e.target.checked;
-        try {
-          await api(`/api/automations/workflows/${key}/toggle`, {
-            method: 'PATCH',
-            body: JSON.stringify({ is_enabled: enabled })
-          });
-          showToast(`Workflow ${key} is now ${enabled ? 'active' : 'paused'}.`);
-          await fetchAutomations();
-        } catch (err) {
-          showToast(`Toggle failed: ${err.message}`, 'error');
-          e.target.checked = !enabled;
-        }
+        await window.toggleWorkflowStatus(key, enabled);
+      });
+    });
+
+    // Toggle Workflow Pause / Resume Action Buttons
+    document.querySelectorAll('.btn-toggle-wf-action').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const key = btn.getAttribute('data-key');
+        const action = btn.getAttribute('data-action');
+        await window.toggleWorkflowStatus(key, action === 'resume');
+      });
+    });
+
+    // Toggle Workflow Badge Click
+    document.querySelectorAll('.btn-toggle-wf-badge').forEach(badge => {
+      badge.addEventListener('click', async () => {
+        const key = badge.getAttribute('data-key');
+        const isCurrentlyEnabled = badge.getAttribute('data-enabled') === 'true';
+        await window.toggleWorkflowStatus(key, !isCurrentlyEnabled);
       });
     });
 
@@ -3767,7 +3812,22 @@ function openWorkflowConfigModal(key) {
 
   const actId = wf.viasocket_action_id || wf.supported_action || (wf.delivery_channel === 'gmail' ? 'rowogelpy0h6' : 'row1jrbor');
   document.getElementById('cfgWfActionBadge').textContent = `action: ${actId}`;
-  document.getElementById('cfgWfEnabled').checked = Boolean(wf.is_enabled);
+
+  const enabledInput = document.getElementById('cfgWfEnabled');
+  const enabledBadge = document.getElementById('cfgWfEnabledBadge');
+  if (enabledInput) {
+    enabledInput.checked = Boolean(wf.is_enabled);
+    if (enabledBadge) {
+      enabledBadge.textContent = wf.is_enabled ? 'Active' : 'Paused';
+      enabledBadge.className = `badge ${wf.is_enabled ? 'badge-emerald' : 'badge-amber'}`;
+    }
+    enabledInput.onchange = () => {
+      if (enabledBadge) {
+        enabledBadge.textContent = enabledInput.checked ? 'Active' : 'Paused';
+        enabledBadge.className = `badge ${enabledInput.checked ? 'badge-emerald' : 'badge-amber'}`;
+      }
+    };
+  }
 
   document.getElementById('cfgWfName').value = wf.name || '';
   document.getElementById('cfgWfDescription').value = wf.description || '';

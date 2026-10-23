@@ -6136,7 +6136,8 @@
       "content_fingerprint": "8d3be900d4619dbe54b9612f189fe4a8b3676b01d5d8424cbf36b089ea3bf419",
       "moderation_status": "flagged",
       "moderation_note": "",
-      "moderated_at": "2026-10-23T07:19:39.346Z"
+      "moderated_at": "2026-10-23T07:19:39.346Z",
+      "external_review_id": "GS-101"
     },
     {
       "review_id": "GS-102",
@@ -6181,7 +6182,8 @@
         "reply_status_updated_at": "2026-10-23T07:21:05.242Z"
       },
       "organization_id": "org-5b2867065ef9",
-      "content_fingerprint": "f5bca95eea2efc579ff075545236cb8b1edc7f8ad33e49cb6154b1aee3baf613"
+      "content_fingerprint": "f5bca95eea2efc579ff075545236cb8b1edc7f8ad33e49cb6154b1aee3baf613",
+      "external_review_id": "GS-102"
     },
     {
       "review_id": "GS-103",
@@ -6225,7 +6227,8 @@
         "analyzed_at": "2026-10-23T07:19:06.310Z"
       },
       "organization_id": "org-5b2867065ef9",
-      "content_fingerprint": "5b6e82de8005ed88f1d7e8ecce5a12a36c65aca9d99ceff469ffb5457f43900f"
+      "content_fingerprint": "5b6e82de8005ed88f1d7e8ecce5a12a36c65aca9d99ceff469ffb5457f43900f",
+      "external_review_id": "GS-103"
     },
     {
       "review_id": "GS-104",
@@ -6267,7 +6270,8 @@
         "analyzed_at": "2026-10-23T07:19:06.310Z"
       },
       "organization_id": "org-5b2867065ef9",
-      "content_fingerprint": "a63a94a605bb1c3d8f8118bea240895c650d1377e72624960f0249e9c2e012a0"
+      "content_fingerprint": "a63a94a605bb1c3d8f8118bea240895c650d1377e72624960f0249e9c2e012a0",
+      "external_review_id": "GS-104"
     },
     {
       "review_id": "GS-105",
@@ -6311,7 +6315,8 @@
         "analyzed_at": "2026-10-23T07:19:06.310Z"
       },
       "organization_id": "org-5b2867065ef9",
-      "content_fingerprint": "88ca96866483274983dd1760350f1074cb37ca39ad26dc80b40b686149274ca0"
+      "content_fingerprint": "88ca96866483274983dd1760350f1074cb37ca39ad26dc80b40b686149274ca0",
+      "external_review_id": "GS-105"
     },
     {
       "review_id": "GS-106",
@@ -6351,7 +6356,8 @@
         "analyzed_at": "2026-10-23T07:19:06.310Z"
       },
       "organization_id": "org-5b2867065ef9",
-      "content_fingerprint": "f7e7f988b866dcde87775e56076fb7c7c798519b65b9fffc0494fd50dc6cd848"
+      "content_fingerprint": "f7e7f988b866dcde87775e56076fb7c7c798519b65b9fffc0494fd50dc6cd848",
+      "external_review_id": "GS-106"
     },
     {
       "review_id": "GS-107",
@@ -6395,7 +6401,8 @@
         "analyzed_at": "2026-10-23T07:19:06.310Z"
       },
       "organization_id": "org-5b2867065ef9",
-      "content_fingerprint": "38b4d9e3586b847e9406c56cf2f46cb56d00bf116b33d2150111471bfaf9837d"
+      "content_fingerprint": "38b4d9e3586b847e9406c56cf2f46cb56d00bf116b33d2150111471bfaf9837d",
+      "external_review_id": "GS-107"
     },
     {
       "review_id": "GS-108",
@@ -6435,7 +6442,8 @@
         "analyzed_at": "2026-10-23T07:19:06.310Z"
       },
       "organization_id": "org-5b2867065ef9",
-      "content_fingerprint": "e2bd00cb43ea1f881d6da1082b13f2b181d8c507e05c519d452f3cdfe4ce09b3"
+      "content_fingerprint": "e2bd00cb43ea1f881d6da1082b13f2b181d8c507e05c519d452f3cdfe4ce09b3",
+      "external_review_id": "GS-108"
     },
     {
       "review_id": "GS-109",
@@ -6477,7 +6485,8 @@
         "analyzed_at": "2026-10-23T07:19:06.310Z"
       },
       "organization_id": "org-5b2867065ef9",
-      "content_fingerprint": "cca732769a559b7d20e52f0d67636a9d5ff84d78d0c70589df193fa8319cb23b"
+      "content_fingerprint": "cca732769a559b7d20e52f0d67636a9d5ff84d78d0c70589df193fa8319cb23b",
+      "external_review_id": "GS-109"
     },
     {
       "review_id": "GS-110",
@@ -6530,7 +6539,8 @@
         "analyzed_at": "2026-10-23T07:19:06.310Z"
       },
       "organization_id": "org-5b2867065ef9",
-      "content_fingerprint": "bc39b7cbcf235b998573a8251bec45625ebb9c823c6b9a9bf8e1329ef559cbbf"
+      "content_fingerprint": "bc39b7cbcf235b998573a8251bec45625ebb9c823c6b9a9bf8e1329ef559cbbf",
+      "external_review_id": "GS-110"
     },
     {
       "review_id": "GS-111",
@@ -6576,7 +6586,8 @@
         "analyzed_at": "2026-10-23T07:19:06.310Z"
       },
       "organization_id": "org-5b2867065ef9",
-      "content_fingerprint": "71d7171f6c725bc26d2bdf40178aad740e0230f3b55c7d1293b793fba8838e93"
+      "content_fingerprint": "71d7171f6c725bc26d2bdf40178aad740e0230f3b55c7d1293b793fba8838e93",
+      "external_review_id": "GS-111"
     },
     {
       "review_id": "GS-112",
@@ -6623,7 +6634,8 @@
         "analyzed_at": "2026-10-23T07:19:06.311Z"
       },
       "organization_id": "org-5b2867065ef9",
-      "content_fingerprint": "26813fccab7a8ee2bbdd3b72a7fcbcf2067445b825c1254bc6590d6e3d2fb278"
+      "content_fingerprint": "26813fccab7a8ee2bbdd3b72a7fcbcf2067445b825c1254bc6590d6e3d2fb278",
+      "external_review_id": "GS-112"
     },
     {
       "review_id": "GS-113",
@@ -6670,7 +6682,8 @@
         "analyzed_at": "2026-10-23T07:19:06.311Z"
       },
       "organization_id": "org-5b2867065ef9",
-      "content_fingerprint": "6701ce97ed7730c83267fb307c9c0c073cd19538279c067502e7424b028c0a1b"
+      "content_fingerprint": "6701ce97ed7730c83267fb307c9c0c073cd19538279c067502e7424b028c0a1b",
+      "external_review_id": "GS-113"
     },
     {
       "review_id": "GS-114",
@@ -6717,7 +6730,8 @@
         "analyzed_at": "2026-10-23T07:19:06.311Z"
       },
       "organization_id": "org-5b2867065ef9",
-      "content_fingerprint": "43fb05a6becb48d32bcf4b40ece3009d22b056bb534f4b7fee6d10ba78bbd220"
+      "content_fingerprint": "43fb05a6becb48d32bcf4b40ece3009d22b056bb534f4b7fee6d10ba78bbd220",
+      "external_review_id": "GS-114"
     },
     {
       "review_id": "GS-115",
@@ -6757,7 +6771,8 @@
         "analyzed_at": "2026-10-23T07:19:06.311Z"
       },
       "organization_id": "org-5b2867065ef9",
-      "content_fingerprint": "7dc4650cac0b251f85ab73188ada4a66b2858b4c3ad95e04c61871fef184e4a2"
+      "content_fingerprint": "7dc4650cac0b251f85ab73188ada4a66b2858b4c3ad95e04c61871fef184e4a2",
+      "external_review_id": "GS-115"
     }
   ],
   "actions": [
@@ -7209,6 +7224,50 @@
     }
   ],
   "audit_logs": [
+    {
+      "id": "aud-185f699b",
+      "organization_id": "org-royal-spice-01",
+      "user_id": null,
+      "action": "AUTOMATION_RULE_TOGGLED",
+      "entity_type": "automation_rule",
+      "entity_id": "rule-01",
+      "details": "Rule \"Workflow A: Immediate Negative Review & Safety Alert\" set to ENABLED",
+      "ip_address": "127.0.0.1",
+      "created_at": "2026-10-23T09:41:50.795Z"
+    },
+    {
+      "id": "aud-ce0955e0",
+      "organization_id": "org-royal-spice-01",
+      "user_id": null,
+      "action": "AUTOMATION_RULE_TOGGLED",
+      "entity_type": "automation_rule",
+      "entity_id": "rule-01",
+      "details": "Rule \"Workflow A: Immediate Negative Review & Safety Alert\" set to PAUSED",
+      "ip_address": "127.0.0.1",
+      "created_at": "2026-10-23T09:40:45.521Z"
+    },
+    {
+      "id": "aud-ef5b44fc",
+      "organization_id": "org-a5845bcc4c2b",
+      "user_id": "usr-aeb0b9dc6a58",
+      "action": "USER_LOGIN",
+      "entity_type": "user",
+      "entity_id": "usr-aeb0b9dc6a58",
+      "details": "User yashverma220057@gmail.com logged in.",
+      "ip_address": "127.0.0.1",
+      "created_at": "2026-10-23T09:25:53.490Z"
+    },
+    {
+      "id": "aud-139f84ca",
+      "organization_id": "org-5b2867065ef9",
+      "user_id": "usr-67c19e47350a",
+      "action": "REVIEWS_FETCHED_VIA_VIASOCKET",
+      "entity_type": "integration",
+      "entity_id": "int-f755a994",
+      "details": "Synced 15 reviews via viaSocket (0 inserted, 15 updated, 0 skipped, 0 failed). Sources: google-sheets.",
+      "ip_address": "127.0.0.1",
+      "created_at": "2026-10-23T09:23:36.517Z"
+    },
     {
       "id": "aud-26bf7c23",
       "organization_id": "org-royal-spice-01",
@@ -9361,50 +9420,6 @@
       "details": "Outcome recorded: \"Calibrated refrigeration to 2.4°C and replaced damaged seal.\" (Post-intervention rating: 4.6★)",
       "ip_address": "127.0.0.1",
       "created_at": "2026-10-22T13:12:48.484Z"
-    },
-    {
-      "id": "aud-e59ad9b2",
-      "organization_id": "org-royal-spice-01",
-      "user_id": null,
-      "action": "TASK_UPDATED",
-      "entity_type": "improvement_task",
-      "entity_id": "task-2272b8cd",
-      "details": "Updated task details for \"Conduct Emergency Cold-Chain QA Inspection\".",
-      "ip_address": "127.0.0.1",
-      "created_at": "2026-10-22T13:12:48.454Z"
-    },
-    {
-      "id": "aud-ee749179",
-      "organization_id": "org-royal-spice-01",
-      "user_id": null,
-      "action": "TASK_CREATED",
-      "entity_type": "improvement_task",
-      "entity_id": "task-2272b8cd",
-      "details": "Created task: \"Conduct Emergency Cold-Chain QA Inspection\" (urgent priority)",
-      "ip_address": "127.0.0.1",
-      "created_at": "2026-10-22T13:12:48.427Z"
-    },
-    {
-      "id": "aud-074f80d9",
-      "organization_id": "org-royal-spice-01",
-      "user_id": null,
-      "action": "REVIEW_MODERATED",
-      "entity_type": "review",
-      "entity_id": "CUST-0faad77b06",
-      "details": "Moderation status set to \"approved\". Note: Verified genuine guest feedback",
-      "ip_address": "127.0.0.1",
-      "created_at": "2026-10-22T13:11:37.060Z"
-    },
-    {
-      "id": "aud-6bada55f",
-      "organization_id": "org-royal-spice-01",
-      "user_id": null,
-      "action": "TASK_RESOLVED",
-      "entity_type": "improvement_task",
-      "entity_id": "tsk-f787198b",
-      "details": "Outcome recorded: \"Switched to 750ml leak-proof tubs; packaging spills dropped to zero\" (Post-intervention rating: 4.6★)",
-      "ip_address": "127.0.0.1",
-      "created_at": "2026-10-22T13:11:36.897Z"
     }
   ],
   "menu_sales": [
@@ -10520,10 +10535,26 @@
       },
       "created_at": "2026-10-23T07:18:38.335Z",
       "updated_at": "2026-10-23T07:19:19.404Z",
-      "last_synced_at": "2026-10-23T07:19:06.323Z"
+      "last_synced_at": "2026-10-23T09:23:36.490Z"
     }
   ],
   "sync_runs": [
+    {
+      "id": "sync-52804ce2943d",
+      "organization_id": "org-5b2867065ef9",
+      "user_id": "usr-67c19e47350a",
+      "source": "google-sheets",
+      "started_at": "2026-10-23T09:23:32.615Z",
+      "completed_at": "2026-10-23T09:23:36.516Z",
+      "status": "success",
+      "records_fetched": 15,
+      "records_inserted": 0,
+      "records_updated": 15,
+      "records_skipped": 0,
+      "records_failed": 0,
+      "error_summary": null,
+      "created_at": "2026-10-23T09:23:36.516Z"
+    },
     {
       "id": "sync-7e5342f8c962",
       "organization_id": "org-a5845bcc4c2b",
@@ -12490,7 +12521,7 @@
       "organization_id": "org-a5845bcc4c2b"
     },
     {
-      "id": "tsk-dc65d9d4",
+      "id": "tsk-78b74ef0",
       "action_id": "ACT-cls-521e763f",
       "issue_cluster_id": "cls-521e763f",
       "title": "URGENT: Emergency Hygiene & Cold-Chain Audit for Kitchen",
@@ -12542,12 +12573,12 @@
       ],
       "resolution_notes": "",
       "post_intervention_rating": null,
-      "created_at": "2026-10-23T07:19:06.323Z",
-      "updated_at": "2026-10-23T07:19:06.323Z",
+      "created_at": "2026-10-23T09:23:36.514Z",
+      "updated_at": "2026-10-23T09:23:36.515Z",
       "organization_id": "org-5b2867065ef9"
     },
     {
-      "id": "tsk-d0a84a75",
+      "id": "tsk-3111dd6c",
       "action_id": "ACT-cls-e43cea72",
       "issue_cluster_id": "cls-e43cea72",
       "title": "Resolve Delivery Transit Packaging Leakage & Container Cracking",
@@ -12596,12 +12627,12 @@
       ],
       "resolution_notes": "",
       "post_intervention_rating": null,
-      "created_at": "2026-10-23T07:19:06.323Z",
-      "updated_at": "2026-10-23T07:19:06.323Z",
+      "created_at": "2026-10-23T09:23:36.515Z",
+      "updated_at": "2026-10-23T09:23:36.515Z",
       "organization_id": "org-5b2867065ef9"
     },
     {
-      "id": "tsk-422a299b",
+      "id": "tsk-7df8d4ba",
       "action_id": "ACT-cls-1680a307",
       "issue_cluster_id": "cls-1680a307",
       "title": "Standardize Master Recipe & Seasoning Calibration for Signature Dishes",
@@ -12649,12 +12680,12 @@
       ],
       "resolution_notes": "",
       "post_intervention_rating": null,
-      "created_at": "2026-10-23T07:19:06.323Z",
-      "updated_at": "2026-10-23T07:19:06.323Z",
+      "created_at": "2026-10-23T09:23:36.515Z",
+      "updated_at": "2026-10-23T09:23:36.515Z",
       "organization_id": "org-5b2867065ef9"
     },
     {
-      "id": "tsk-13e9b497",
+      "id": "tsk-e34e4209",
       "action_id": "ACT-cls-a3590ec8",
       "issue_cluster_id": "cls-a3590ec8",
       "title": "Optimize Peak Hour Kitchen Prep Time & Delivery Staging",
@@ -12702,12 +12733,12 @@
       ],
       "resolution_notes": "",
       "post_intervention_rating": null,
-      "created_at": "2026-10-23T07:19:06.323Z",
-      "updated_at": "2026-10-23T07:19:06.323Z",
+      "created_at": "2026-10-23T09:23:36.515Z",
+      "updated_at": "2026-10-23T09:23:36.515Z",
       "organization_id": "org-5b2867065ef9"
     },
     {
-      "id": "tsk-9b44d51e",
+      "id": "tsk-1c133174",
       "action_id": "ACT-cls-b60dc1f2",
       "issue_cluster_id": "cls-b60dc1f2",
       "title": "Standardize Master Recipe & Seasoning Calibration for Signature Dishes",
@@ -12755,12 +12786,12 @@
       ],
       "resolution_notes": "",
       "post_intervention_rating": null,
-      "created_at": "2026-10-23T07:19:06.323Z",
-      "updated_at": "2026-10-23T07:19:06.323Z",
+      "created_at": "2026-10-23T09:23:36.515Z",
+      "updated_at": "2026-10-23T09:23:36.515Z",
       "organization_id": "org-5b2867065ef9"
     },
     {
-      "id": "tsk-3c87d66c",
+      "id": "tsk-cb7ef52c",
       "action_id": "ACT-cls-3ecd5ad9",
       "issue_cluster_id": "cls-3ecd5ad9",
       "title": "Standardize Master Recipe & Seasoning Calibration for Signature Dishes",
@@ -12808,8 +12839,8 @@
       ],
       "resolution_notes": "",
       "post_intervention_rating": null,
-      "created_at": "2026-10-23T07:19:06.323Z",
-      "updated_at": "2026-10-23T07:19:06.323Z",
+      "created_at": "2026-10-23T09:23:36.515Z",
+      "updated_at": "2026-10-23T09:23:36.515Z",
       "organization_id": "org-5b2867065ef9"
     }
   ],
@@ -19615,6 +19646,78 @@
     }
   ],
   "qa_conversations": [
+    {
+      "id": "qa-b796c29d",
+      "organization_id": "org-a5845bcc4c2b",
+      "thread_id": "qa-mvkrh83s",
+      "user_id": "usr-aeb0b9dc6a58",
+      "question": "Which dishes receive the best feedback?",
+      "answer": "Based on your recorded reviews, guests frequently praise signature culinary items and hospitable dining service.",
+      "created_at": "2026-10-23T09:26:00.989Z"
+    },
+    {
+      "id": "qa-1ab409f6",
+      "organization_id": "org-5b2867065ef9",
+      "thread_id": "qa-mvkrh83s",
+      "user_id": "usr-67c19e47350a",
+      "question": "Which dishes receive the best feedback?",
+      "answer": "Based on your recorded reviews, guests frequently praise signature culinary items and hospitable dining service.",
+      "created_at": "2026-10-23T09:23:50.447Z"
+    },
+    {
+      "id": "qa-550d0289",
+      "organization_id": "org-5b2867065ef9",
+      "thread_id": "qa-mvkrh83s",
+      "user_id": "usr-67c19e47350a",
+      "question": "Which dishes receive the best feedback?",
+      "answer": "Based on your recorded reviews, guests frequently praise signature culinary items and hospitable dining service.",
+      "created_at": "2026-10-23T09:23:46.831Z"
+    },
+    {
+      "id": "qa-168a419a",
+      "organization_id": "org-5b2867065ef9",
+      "thread_id": "qa-mvkrh83s",
+      "user_id": "usr-67c19e47350a",
+      "question": "What are customers complaining about most?",
+      "answer": "Based on your **15 recorded reviews**, there are currently no major recurring complaints (requiring 2+ reports) detected in your system.",
+      "created_at": "2026-10-23T09:23:44.124Z"
+    },
+    {
+      "id": "qa-bce59aae",
+      "organization_id": "org-5b2867065ef9",
+      "thread_id": "qa-mvkrh83s",
+      "user_id": "usr-67c19e47350a",
+      "question": "What are customers complaining about most?",
+      "answer": "Based on your **15 recorded reviews**, there are currently no major recurring complaints (requiring 2+ reports) detected in your system.",
+      "created_at": "2026-10-23T09:23:10.554Z"
+    },
+    {
+      "id": "qa-87baa719",
+      "organization_id": "org-5b2867065ef9",
+      "thread_id": "qa-mvkrh83s",
+      "user_id": "usr-67c19e47350a",
+      "question": "Which dishes receive the best feedback?",
+      "answer": "Based on your recorded reviews, guests frequently praise signature culinary items and hospitable dining service.",
+      "created_at": "2026-10-23T09:22:59.415Z"
+    },
+    {
+      "id": "qa-6b5ccb4c",
+      "organization_id": "org-5b2867065ef9",
+      "thread_id": "qa-mvkrh83s",
+      "user_id": "usr-67c19e47350a",
+      "question": "What should we fix first?",
+      "answer": "All current reviews are within standard operational tolerances. No urgent recurring complaints require emergency remediation.",
+      "created_at": "2026-10-23T09:22:54.526Z"
+    },
+    {
+      "id": "qa-e4fc077a",
+      "organization_id": "org-5b2867065ef9",
+      "thread_id": "qa-mvkrh83s",
+      "user_id": "usr-67c19e47350a",
+      "question": "Which issues are increasing?",
+      "answer": "Based on your **15 authorized recorded reviews** (Average: 3.1★), our intelligence engine is tracking 0 recurring complaint patterns and 0 positive customer themes. For questions outside this dataset, details are currently unavailable.",
+      "created_at": "2026-10-23T09:22:44.928Z"
+    },
     {
       "id": "qa-da3c7a02",
       "organization_id": "org-a5845bcc4c2b",
