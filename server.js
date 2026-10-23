@@ -193,7 +193,7 @@ bootstrapDefaultData();
 // ============================================================================
 
 app.post('/api/auth/signup', (req, res) => {
-  const { email, password, full_name, organization_name, plan_tier } = req.body;
+  const { email, password, full_name, organization_name, plan_tier, outlet_name, outlet_city } = req.body;
   if (!email || !password || !full_name) {
     return res.status(400).json({ error: 'Email, password, and full name are required.' });
   }
@@ -204,8 +204,9 @@ app.post('/api/auth/signup', (req, res) => {
   }
 
   // Create organization
+  const orgName = organization_name || `${full_name}'s Restaurants`;
   const org = store.createOrganization({
-    name: organization_name || `${full_name}'s Restaurants`,
+    name: orgName,
     plan_tier: plan_tier || 'growth'
   });
 
@@ -220,11 +221,17 @@ app.post('/api/auth/signup', (req, res) => {
   // Create membership
   store.addOrganizationMember(org.id, user.id, 'restaurant_owner');
 
-  // Create default outlet
+  // Create customized first outlet
+  const customOutletName = outlet_name && outlet_name.trim() 
+    ? outlet_name.trim() 
+    : (organization_name ? `${organization_name} - Main Branch` : 'Main Branch');
+  const customOutletCity = outlet_city && outlet_city.trim() ? outlet_city.trim() : 'Metro';
+  const customCode = customOutletName.replace(/[^a-zA-Z0-9]/g, '').slice(0, 4).toUpperCase() || 'MB-01';
+
   const outlet = store.createOutlet(org.id, {
-    name: 'Main Flagship',
-    code: 'MF-01',
-    city: 'Metro'
+    name: customOutletName,
+    code: customCode,
+    city: customOutletCity
   });
 
   // Log audit
@@ -337,6 +344,15 @@ app.post('/api/outlets', authMiddleware, (req, res) => {
   const outlet = store.createOutlet(req.orgId, { name, code, city, time_zone });
   store.logAudit(req.orgId, req.user?.id, 'OUTLET_CREATED', 'outlet', outlet.id, `Created outlet "${name}".`);
   res.status(201).json(outlet);
+});
+
+app.delete('/api/outlets/:id', authMiddleware, (req, res) => {
+  const deleted = store.deleteOutlet(req.orgId, req.params.id);
+  if (!deleted) {
+    return res.status(404).json({ error: 'Outlet not found' });
+  }
+  store.logAudit(req.orgId, req.user?.id, 'OUTLET_DELETED', 'outlet', req.params.id, `Deleted outlet "${deleted.name}".`);
+  res.json({ success: true, message: `Outlet "${deleted.name}" deleted successfully.`, deleted });
 });
 
 // ============================================================================

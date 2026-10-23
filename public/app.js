@@ -821,16 +821,48 @@ async function loadMeta() {
       cachedOutlets = meta.outlets;
       const globalOutlet = document.getElementById('globalOutletFilter');
       const manOutlet = document.getElementById('manOutlet');
+      const analyticsOutlet = document.getElementById('analyticsOutletSelect');
 
-      if (manOutlet) manOutlet.innerHTML = '';
-      meta.outlets.forEach(o => {
-        if (manOutlet) {
+      // Populate Global Filter Dropdown
+      if (globalOutlet) {
+        const savedVal = globalOutlet.value || currentOutlet || 'All Outlets';
+        globalOutlet.innerHTML = '<option value="All Outlets">All Outlets</option>';
+        meta.outlets.forEach(o => {
+          const opt = document.createElement('option');
+          opt.value = o.name;
+          opt.textContent = `${o.name} (${o.city || 'Metro'})`;
+          globalOutlet.appendChild(opt);
+        });
+        const exists = Array.from(globalOutlet.options).some(opt => opt.value === savedVal);
+        globalOutlet.value = exists ? savedVal : 'All Outlets';
+        currentOutlet = globalOutlet.value;
+      }
+
+      // Populate Analytics Outlet Dropdown
+      if (analyticsOutlet) {
+        const savedAnalyticsVal = analyticsOutlet.value || 'All Outlets';
+        analyticsOutlet.innerHTML = '<option value="All Outlets">All Outlets</option>';
+        meta.outlets.forEach(o => {
+          const opt = document.createElement('option');
+          opt.value = o.name;
+          opt.textContent = `${o.name} (${o.city || 'Metro'})`;
+          analyticsOutlet.appendChild(opt);
+        });
+        const exists = Array.from(analyticsOutlet.options).some(opt => opt.value === savedAnalyticsVal);
+        analyticsOutlet.value = exists ? savedAnalyticsVal : 'All Outlets';
+      }
+
+      // Populate Manual Review Modal Outlets
+      if (manOutlet) {
+        manOutlet.innerHTML = '';
+        meta.outlets.forEach(o => {
           const opt = document.createElement('option');
           opt.value = o.name;
           opt.textContent = `${o.name} (${o.city || 'Metro'})`;
           manOutlet.appendChild(opt);
-        }
-      });
+        });
+      }
+
       renderOutletsGrid(meta.outlets);
     }
   } catch (e) {
@@ -956,14 +988,38 @@ function renderOutletsGrid(outlets) {
         <div style="margin-top:3px;">Manager: <strong>${escapeHtml(o.manager_name || 'Assigned General Manager')}</strong></div>
       </div>
       <div style="display:flex; justify-content:space-between; align-items:center; pt:8px; border-top:1px solid var(--border-subtle); margin-top:12px; padding-top:10px;">
-        <div style="display:flex; gap:6px;">
+        <div style="display:flex; gap:6px; flex-wrap:wrap;">
           <button class="btn btn-xs btn-outline" onclick="openQrModalForOutlet('${escapeHtml(o.outlet_id || o.id || '')}')">📱 Review QR</button>
           <button class="btn btn-xs btn-outline" onclick="selectOutletFilter('${escapeHtml(o.name)}')">Filter Reviews</button>
+          <button class="btn btn-xs btn-danger" style="color:#ef4444; border-color:rgba(239,68,68,0.3); background:transparent;" onclick="deleteOutletPrompt('${escapeHtml(o.id || o.outlet_id || '')}', '${escapeHtml(o.name)}')">🗑️ Delete</button>
         </div>
       </div>
     </div>
   `).join('');
 }
+
+window.deleteOutletPrompt = async function(id, name) {
+  if (!confirm(`Are you sure you want to remove the outlet "${name}"? This action cannot be undone.`)) {
+    return;
+  }
+  try {
+    const res = await api('/api/outlets/' + encodeURIComponent(id), { method: 'DELETE' });
+    if (res && res.error) {
+      showToast(res.error, 'error');
+      return;
+    }
+    showToast(`Outlet "${name}" removed successfully.`);
+    if (currentOutlet === name) {
+      currentOutlet = 'All Outlets';
+      const globalOutlet = document.getElementById('globalOutletFilter');
+      if (globalOutlet) globalOutlet.value = 'All Outlets';
+    }
+    await loadMeta();
+    await loadAllData();
+  } catch (err) {
+    showToast(err.message || 'Failed to delete outlet', 'error');
+  }
+};
 
 function selectOutletFilter(name) {
   const sel = document.getElementById('globalOutletFilter');
@@ -4374,12 +4430,14 @@ function initForms() {
       const email = document.getElementById('signupEmail')?.value;
       const password = document.getElementById('signupPassword')?.value;
       const plan_tier = document.getElementById('signupPlanTier')?.value || 'growth';
+      const outlet_name = document.getElementById('signupOutletName')?.value?.trim() || '';
+      const outlet_city = document.getElementById('signupOutletCity')?.value?.trim() || '';
       const alertBox = document.getElementById('signupAlert');
 
       try {
         const res = await api('/api/auth/signup', {
           method: 'POST',
-          body: JSON.stringify({ full_name, organization_name, email, password, plan_tier })
+          body: JSON.stringify({ full_name, organization_name, email, password, plan_tier, outlet_name, outlet_city })
         });
 
         if (res.error) {
@@ -4446,6 +4504,7 @@ function initForms() {
       document.getElementById('newOutletModal')?.classList.add('hidden');
       formNewOutlet.reset();
       await loadMeta();
+      await loadAllData();
     });
   }
 

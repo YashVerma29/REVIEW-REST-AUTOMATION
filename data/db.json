@@ -70,6 +70,17 @@
       "status": "active",
       "code": "OUT-SR-01",
       "city": "Delhi"
+    },
+    {
+      "id": "out-4a1f7d28",
+      "organization_id": "org-5b2867065ef9",
+      "name": "Main Flagship",
+      "code": "MF-01",
+      "city": "Metro",
+      "time_zone": "Asia/Kolkata",
+      "status": "active",
+      "created_at": "2026-10-23T06:27:27.339Z",
+      "updated_at": "2026-10-23T06:27:27.339Z"
     }
   ],
   "reviews": [
@@ -5726,6 +5737,39 @@
   ],
   "audit_logs": [
     {
+      "id": "aud-67ca4742",
+      "organization_id": "org-5b2867065ef9",
+      "user_id": "usr-67c19e47350a",
+      "action": "USER_SIGNUP",
+      "entity_type": "user",
+      "entity_id": "usr-67c19e47350a",
+      "details": "User vyash5580@gmail.com signed up and created organization \"NBC\".",
+      "ip_address": "127.0.0.1",
+      "created_at": "2026-10-23T06:27:27.364Z"
+    },
+    {
+      "id": "aud-366c0857",
+      "organization_id": "org-a5845bcc4c2b",
+      "user_id": "usr-aeb0b9dc6a58",
+      "action": "USER_LOGIN",
+      "entity_type": "user",
+      "entity_id": "usr-aeb0b9dc6a58",
+      "details": "User yashverma220057@gmail.com logged in.",
+      "ip_address": "127.0.0.1",
+      "created_at": "2026-10-23T06:14:45.802Z"
+    },
+    {
+      "id": "aud-e9be18cf",
+      "organization_id": "org-a5845bcc4c2b",
+      "user_id": "usr-aeb0b9dc6a58",
+      "action": "USER_LOGIN",
+      "entity_type": "user",
+      "entity_id": "usr-aeb0b9dc6a58",
+      "details": "User yashverma220057@gmail.com logged in.",
+      "ip_address": "127.0.0.1",
+      "created_at": "2026-10-23T06:14:44.148Z"
+    },
+    {
       "id": "aud-b39cdc46",
       "organization_id": "org-a5845bcc4c2b",
       "user_id": "usr-aeb0b9dc6a58",
@@ -7888,39 +7932,6 @@
       "details": "Configured gmail: recipient_email=owner@royalspice.com, report_format=Executive Operations Brief (Summary + Issues + Tasks), frequency=realtime",
       "ip_address": "127.0.0.1",
       "created_at": "2026-10-22T12:23:50.352Z"
-    },
-    {
-      "id": "aud-f092b0ee",
-      "organization_id": "org-royal-spice-01",
-      "user_id": "usr-owner-01",
-      "action": "INTEGRATION_CONFIGURED",
-      "entity_type": "integration",
-      "entity_id": "int-04",
-      "details": "Configured google-sheets: spreadsheet_name=Reviews, sheet_name=Reviews, worksheet_tab=Sheet1, spreadsheet_id=1Y8tL_01gXn-rw8OwwoPOljR2m9tFaOFLzhcLz7ec0RY",
-      "ip_address": "127.0.0.1",
-      "created_at": "2026-10-22T12:22:29.427Z"
-    },
-    {
-      "id": "aud-58c2f8d9",
-      "organization_id": "org-royal-spice-01",
-      "user_id": "usr-owner-01",
-      "action": "INTEGRATION_CONFIGURED",
-      "entity_type": "integration",
-      "entity_id": "int-04",
-      "details": "Configured google-sheets: spreadsheet_name=Customer Feedback 2026, sheet_name=Customer Feedback 2026, worksheet_tab=Dining Reviews, spreadsheet_id=1Y8tL_01gXn-rw8OwwoPOljR2m9tFaOFLzhcLz7ec0RY",
-      "ip_address": "127.0.0.1",
-      "created_at": "2026-10-22T12:22:17.708Z"
-    },
-    {
-      "id": "aud-39d7cccb",
-      "organization_id": "org-royal-spice-01",
-      "user_id": null,
-      "action": "GOAL_SAVED",
-      "entity_type": "goal",
-      "entity_id": "goal-639d9974",
-      "details": "Saved goal: \"Achieve 4.5★ Average Rating for October\" (Target: 4.5)",
-      "ip_address": "127.0.0.1",
-      "created_at": "2026-10-22T12:14:05.548Z"
     }
   ],
   "menu_sales": [
@@ -8030,6 +8041,21 @@
       "name": "Spice Route Express",
       "org_slug": "spice_route_express",
       "plan_tier": "growth"
+    },
+    {
+      "id": "org-5b2867065ef9",
+      "name": "NBC",
+      "org_slug": "nbc",
+      "brand_group": "NBC",
+      "plan_tier": "growth",
+      "monthly_review_limit": 1500,
+      "business_metrics": {
+        "average_order_value": 650,
+        "unvoiced_multiplier": 10,
+        "churn_probability": 0.6
+      },
+      "created_at": "2026-10-23T06:27:27.092Z",
+      "updated_at": "2026-10-23T06:27:27.092Z"
     }
   ],
   "users": [
@@ -8065,6 +8091,15 @@
       "role": "restaurant_owner",
       "created_at": "2026-10-22T11:16:38.969Z",
       "updated_at": "2026-10-22T11:16:38.969Z"
+    },
+    {
+      "id": "usr-67c19e47350a",
+      "email": "vyash5580@gmail.com",
+      "password_hash": "6f8a720f24757fcb3218698b4e3d4d7e:1cd23393d715c17f7c6c5f451914b3ac458c74bb59c318157a13bb0ed250bd0fe33935bd1395d2b37387387344d92b83bb7eef32fe69f67ff5241735bb2123cc",
+      "full_name": "YV",
+      "role": "restaurant_owner",
+      "created_at": "2026-10-23T06:27:27.272Z",
+      "updated_at": "2026-10-23T06:27:27.272Z"
     }
   ],
   "organization_members": [
@@ -8111,6 +8146,16 @@
       "status": "active",
       "created_at": "2026-10-22T11:16:38.975Z",
       "updated_at": "2026-10-22T11:16:38.975Z"
+    },
+    {
+      "id": "mem-e2f4488576f2",
+      "organization_id": "org-5b2867065ef9",
+      "user_id": "usr-67c19e47350a",
+      "role": "restaurant_owner",
+      "assigned_outlet_ids": [],
+      "status": "active",
+      "created_at": "2026-10-23T06:27:27.312Z",
+      "updated_at": "2026-10-23T06:27:27.312Z"
     }
   ],
   "integrations": [
@@ -16015,6 +16060,21 @@
       "status": "active",
       "created_at": "2026-10-22T11:16:38.887Z",
       "updated_at": "2026-10-22T11:16:38.887Z"
+    },
+    {
+      "id": "sub-a3efc1c7caf8",
+      "organization_id": "org-5b2867065ef9",
+      "plan_tier": "growth",
+      "monthly_price_inr": 8999,
+      "current_period_start": "2026-10-23",
+      "current_period_end": "2026-11-22",
+      "reviews_analyzed_this_period": 0,
+      "reviews_limit": 1500,
+      "outlets_count": 1,
+      "outlets_limit": 10,
+      "status": "active",
+      "created_at": "2026-10-23T06:27:27.092Z",
+      "updated_at": "2026-10-23T06:27:27.092Z"
     }
   ],
   "recurring_complaints": [
@@ -16314,6 +16374,13 @@
       "frequently_praised": [],
       "analyzed_review_count": 0,
       "updated_at": "2026-10-22T11:16:39.069Z"
+    },
+    {
+      "organization_id": "org-5b2867065ef9",
+      "recurring_complaints": [],
+      "frequently_praised": [],
+      "analyzed_review_count": 0,
+      "updated_at": "2026-10-23T06:27:27.464Z"
     }
   ],
   "growth_recommendations": [
@@ -16534,9 +16601,41 @@
       "ai_engine": "viasocket-openai/gpt-5-mini",
       "generated_at": "2026-10-22T11:16:59.407Z",
       "updated_at": "2026-10-22T11:16:59.407Z"
+    },
+    {
+      "organization_id": "org-5b2867065ef9",
+      "recommendations": [
+        {
+          "id": "r1",
+          "title": "Provide review & operational data to enable evidence-based recommendations",
+          "issue_or_opportunity": "No customer review, complaint, or operational data is available for org-5b2867065ef9 — I cannot detect recurring issues or produce prioritized, evidence-based recommendations without that data.",
+          "supporting_evidence": {
+            "review_count": 0,
+            "evidence_quotes": [],
+            "related_review_ids": []
+          },
+          "recommended_action": "1) Export and share customer reviews (CSV or spreadsheet) from all channels (Google/Yelp/Zomato/Swiggy/Deliveroo/own app) for the past 6–12 months. Include: review_id, timestamp, rating, full review text, order_id (if available), and channel. 2) Provide key operational datasets for the same period: daily covers, average ticket, peak-hour windows, average in-store prep times, average delivery/fulfillment times, and any incident logs (e.g., refunds, complaints resolved). 3) If a full export isn't possible, provide a random sample of ≥200 reviews that includes negatives (1–3★) and neutrals (3★). 4) Share your top 10 menu items by volume and any recent menu/price/packaging changes. 5) After you upload or grant access, confirm here — I will run the analysis and deliver prioritized, evidence-backed recommendations (target: initial findings within 48–72 hours).",
+          "expected_impact": "Enables identification of the top recurring issues and growth opportunities with verbatim evidence; allows creation of targeted operational fixes and retention campaigns. Concrete outcome: ability to produce a prioritized action plan covering the top 3 issues that account for ≥60–80% of complaints within 48–72 hours after data receipt.",
+          "effort_level": "low",
+          "priority": "urgent",
+          "suggested_metric": "Provide dataset covering ≥6 months or ≥200 reviews (including review_id, timestamp, rating, full text) and core ops metrics within 7 days"
+        }
+      ],
+      "ai_engine": "viasocket-openai/gpt-5-mini",
+      "generated_at": "2026-10-23T06:27:42.116Z",
+      "updated_at": "2026-10-23T06:27:42.116Z"
     }
   ],
   "qa_conversations": [
+    {
+      "id": "qa-da3c7a02",
+      "organization_id": "org-a5845bcc4c2b",
+      "thread_id": "qa-mvkkrqpr",
+      "user_id": "usr-aeb0b9dc6a58",
+      "question": "Which dishes receive the best feedback?",
+      "answer": "Short answer — based only on your recorded reviews:\n\nDishes that received clearly positive feedback (4–5★ reviews), with cited evidence:\n- Dal Makhani — GS-101 (5★, Connaught Place Flagship): \"The Dal Makhani ... extraordinary! Melt-in-mouth texture...\"\n- Garlic Naan — GS-101 (5★): praised alongside the Dal Makhani.\n- Butter Chicken (and smoky tandoori chicken) — GS-109 (5★, Connaught Place Flagship): \"Best Butter Chicken in Delhi! ... smoky tandoori chicken...\"\n- Paneer Tikka — GS-104 (4★, Connaught Place Flagship): \"Loved the paneer tikka...\"\n- Mocktails — GS-104 (4★): praised with the paneer tikka.\n- Crispy stuffed Kulchas — GS-106 (5★, Indiranagar Central): \"Crispy stuffed kulchas...\"\n- Aromatic Tea — GS-106 (5★): praised in the same review.\n- Rogan Josh — GS-111 (4★, Indiranagar Central): \"Rich and flavorful Rogan Josh.\"\n- Gulab Jamun — GS-111 (4★): \"Gulab Jamun was served hot and delicious.\"\n- Biryani — GS-115 (5★, Indiranagar Central): \"The Biryani aroma was sensational!\"\n\nNotes and operational pointers (based on the same recorded reviews):\n- Mixed signals: Mutton Biryani had a negative note about missing raita/mint chutney in GS-103 (2★), so ensure condiments/combos are consistently packaged.\n- Delivery/packaging issues appear in several negative reviews (e.g., GS-102, GS-108, GS-112). For praised dishes that travel well (Dal Makhani, Butter Chicken, Biryani), improving sealing/containers could protect that positive perception.\n\nIf you want, I can:\n- Produce a one-page staff checklist (kitchen + packing) referencing the exact reviews above, or\n- Prioritize menu/marketing suggestions highlighting these positively-reviewed dishes with the supporting review quotes. Which would you prefer?",
+      "created_at": "2026-10-23T06:16:48.202Z"
+    },
     {
       "id": "qa-e6057be3",
       "organization_id": "org-a5845bcc4c2b",

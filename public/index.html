@@ -503,6 +503,16 @@
           <label class="form-label">Restaurant Brand / Organization Name</label>
           <input type="text" id="signupOrgName" class="input-text" required placeholder="Royal Spice Hospitality">
         </div>
+        <div style="display:grid; grid-template-columns: 2fr 1fr; gap:10px;">
+          <div class="form-group">
+            <label class="form-label">Your First Outlet / Branch</label>
+            <input type="text" id="signupOutletName" class="input-text" placeholder="e.g. Connaught Place (or Main Branch)">
+          </div>
+          <div class="form-group">
+            <label class="form-label">City</label>
+            <input type="text" id="signupOutletCity" class="input-text" placeholder="e.g. Delhi">
+          </div>
+        </div>
         <div class="form-group">
           <label class="form-label">Email Address</label>
           <input type="email" id="signupEmail" class="input-text" required placeholder="rajesh@royalspice.com">
@@ -876,9 +886,6 @@
           <!-- Global Restaurant Outlet Filter -->
           <select id="globalOutletFilter" class="select-input" style="width: 200px;">
             <option value="All Outlets">All Outlets</option>
-            <option value="Downtown Flagship">Downtown Flagship</option>
-            <option value="Cyber City Cloud Kitchen">Cyber City Cloud Kitchen</option>
-            <option value="Westend Mall">Westend Mall</option>
           </select>
 
           <!-- Notification Bell with Dropdown -->
@@ -1442,9 +1449,6 @@
               <div style="display:flex; align-items:center; gap:8px;">
                 <select id="analyticsOutletSelect" class="form-input" style="width:190px; padding:6px 10px; font-size:12px;">
                   <option value="All Outlets">All Outlets</option>
-                  <option value="Downtown Flagship">Downtown Flagship</option>
-                  <option value="Cyber City Cloud Kitchen">Cyber City Cloud Kitchen</option>
-                  <option value="Westend Mall">Westend Mall</option>
                 </select>
                 <button class="btn btn-sm btn-primary" onclick="loadAnalyticsMetrics()">Apply Filter</button>
               </div>
