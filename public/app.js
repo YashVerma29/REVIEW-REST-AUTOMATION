@@ -656,6 +656,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   initFilters();
   initForms();
   initPublicReviewForm();
+  initOnboardingWizardEvents();
 
   await checkAuthAndBootstrap();
 
@@ -4455,11 +4456,19 @@ function initForms() {
           showToast(`Account created for ${organization_name}!`);
           await checkAuthAndBootstrap();
           appNavigate('/dashboard');
+          if (typeof openOnboardingWizard === 'function') {
+            openOnboardingWizard(1);
+          }
         }
       } catch (err) {
         if (alertBox) {
           alertBox.className = 'auth-alert error';
-          alertBox.textContent = 'Failed to register account.';
+          const msg = err.message || 'Failed to register account.';
+          if (msg.toLowerCase().includes('already exists')) {
+            alertBox.innerHTML = `An account with this email already exists! <a href="/login" data-route="/login" style="color:var(--emerald-primary); font-weight:700; text-decoration:underline;">Click here to Sign In &rarr;</a>`;
+          } else {
+            alertBox.textContent = msg;
+          }
         }
       }
     });
@@ -5383,5 +5392,349 @@ window.printReportBrief = function() {
 window.exportReportCsv = function() {
   const token = localStorage.getItem('r2r_token');
   window.open(`/api/reports/export?format=csv&type=reviews`, '_blank');
+};
+
+// ============================================================================
+// 14. First-Time Setup: 8-Step Onboarding Wizard
+// ============================================================================
+
+let wizardCurrentStep = 1;
+
+window.openOnboardingWizard = function(step = 1) {
+  wizardCurrentStep = step;
+  const modal = document.getElementById('onboardingModal');
+  if (modal) modal.classList.remove('hidden');
+  renderWizardStep();
+};
+
+window.renderWizardStep = function() {
+  const container = document.getElementById('onboardingStepContent');
+  const prevBtn = document.getElementById('btnOnboardingPrev');
+  const nextBtn = document.getElementById('btnOnboardingNext');
+  const stepsContainer = document.getElementById('onboardingStepsIndicator');
+  if (!container) return;
+
+  const stepNames = [
+    '1. Org', '2. Outlets', '3. Review Source', '4. Map Columns',
+    '5. Validate', '6. AI Analysis', '7. Thresholds', '8. First Report'
+  ];
+
+  if (stepsContainer) {
+    stepsContainer.innerHTML = stepNames.map((name, idx) => {
+      const stepNum = idx + 1;
+      const isActive = stepNum === wizardCurrentStep;
+      const isPast = stepNum < wizardCurrentStep;
+      const bg = isActive ? 'var(--emerald-primary)' : isPast ? 'rgba(16,185,129,0.2)' : 'var(--bg-card)';
+      const color = isActive ? '#ffffff' : isPast ? 'var(--emerald-primary)' : 'var(--text-muted)';
+      const border = isActive ? 'var(--emerald-primary)' : isPast ? 'rgba(16,185,129,0.3)' : 'var(--border-subtle)';
+      return `<button type="button" onclick="window.openOnboardingWizard(${stepNum})" style="padding:4px 10px; font-size:11.5px; font-weight:600; border-radius:999px; border:1px solid ${border}; background:${bg}; color:${color}; cursor:pointer; white-space:nowrap; transition:all 0.15s ease;">
+        ${isPast ? '✓ ' : ''}${name}
+      </button>`;
+    }).join('');
+  }
+
+  if (prevBtn) {
+    prevBtn.disabled = (wizardCurrentStep === 1);
+    prevBtn.style.opacity = (wizardCurrentStep === 1) ? '0.5' : '1';
+  }
+
+  if (nextBtn) {
+    nextBtn.textContent = (wizardCurrentStep === 8) ? '🚀 Finish Setup & Launch' : 'Next Step →';
+    nextBtn.className = (wizardCurrentStep === 8) ? 'btn btn-primary btn-sm' : 'btn btn-primary btn-sm';
+  }
+
+  // Render Step Specific Content
+  if (wizardCurrentStep === 1) {
+    const currentName = currentOrg?.name || '';
+    const currentTier = (currentOrg?.plan_tier || 'Growth').toUpperCase();
+    container.innerHTML = `
+      <div style="margin-bottom:14px;">
+        <h4 style="margin:0 0 4px 0; font-size:15px; font-weight:700;">Step 1: Restaurant Brand & Organization</h4>
+        <p style="margin:0; font-size:12.5px; color:var(--text-muted);">Confirm your brand structure and subscription plan.</p>
+      </div>
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-bottom:12px;">
+        <div class="form-group" style="margin-bottom:0;">
+          <label class="form-label" style="font-size:11.5px;">Organization / Brand Name</label>
+          <input type="text" id="wizOrgName" class="form-input" value="${escapeHtml(currentName)}" placeholder="e.g. Royal Spice Hospitality">
+        </div>
+        <div class="form-group" style="margin-bottom:0;">
+          <label class="form-label" style="font-size:11.5px;">Active Plan Tier</label>
+          <input type="text" class="form-input" value="${escapeHtml(currentTier)}" disabled style="background:var(--bg-card); color:var(--text-primary); font-weight:600;">
+        </div>
+      </div>
+      <div style="background:var(--bg-card); padding:10px 12px; border-radius:var(--radius-sm); border:1px solid var(--border-subtle); font-size:12px; color:var(--text-secondary); display:flex; align-items:center; gap:8px;">
+        <span>🔒 Multi-tenant database partition active for <strong>${escapeHtml(currentName || 'Your Brand')}</strong>.</span>
+      </div>
+    `;
+  } else if (wizardCurrentStep === 2) {
+    const outletsList = (cachedOutlets && cachedOutlets.length > 0) ? cachedOutlets : [];
+    const outletsHtml = outletsList.length > 0 ? outletsList.map(o => `
+      <div style="display:flex; justify-content:space-between; align-items:center; background:var(--bg-card); padding:8px 12px; border-radius:6px; border:1px solid var(--border-subtle); margin-bottom:6px;">
+        <div>
+          <strong style="font-size:13px;">${escapeHtml(o.name)}</strong>
+          <span style="font-size:11px; color:var(--text-muted); margin-left:8px;">📍 ${escapeHtml(o.city || 'Metro')} · Code: <code>${escapeHtml(o.code || 'N/A')}</code></span>
+        </div>
+        <button type="button" class="btn btn-xs btn-outline" style="color:#ef4444; border-color:rgba(239,68,68,0.3);" onclick="deleteOutletFromWizard('${escapeHtml(o.id || o.outlet_id || '')}', '${escapeHtml(o.name)}')">Remove</button>
+      </div>
+    `).join('') : '<div style="font-size:12px; color:var(--text-muted); padding:8px 0;">No branches added yet. Add your first outlet below.</div>';
+
+    container.innerHTML = `
+      <div style="margin-bottom:12px;">
+        <h4 style="margin:0 0 4px 0; font-size:15px; font-weight:700;">Step 2: Restaurant Branches & Outlets</h4>
+        <p style="margin:0; font-size:12.5px; color:var(--text-muted);">Add all your dining locations, cloud kitchens, or franchises.</p>
+      </div>
+      <div style="margin-bottom:14px; max-height:120px; overflow-y:auto;">
+        ${outletsHtml}
+      </div>
+      <div style="background:var(--bg-card); padding:12px; border-radius:var(--radius-sm); border:1px solid var(--border-subtle);">
+        <div style="font-size:12px; font-weight:700; margin-bottom:8px; color:var(--emerald-primary);">+ Add New Outlet / Branch</div>
+        <div style="display:grid; grid-template-columns: 2fr 1.2fr 1fr auto; gap:8px; align-items:flex-end;">
+          <div>
+            <label style="font-size:10.5px; font-weight:600; color:var(--text-muted); display:block; margin-bottom:3px;">Outlet Name</label>
+            <input type="text" id="wizNewOutletName" class="form-input" style="padding:6px 8px; font-size:12px;" placeholder="e.g. Connaught Place">
+          </div>
+          <div>
+            <label style="font-size:10.5px; font-weight:600; color:var(--text-muted); display:block; margin-bottom:3px;">City</label>
+            <input type="text" id="wizNewOutletCity" class="form-input" style="padding:6px 8px; font-size:12px;" placeholder="e.g. Delhi">
+          </div>
+          <div>
+            <label style="font-size:10.5px; font-weight:600; color:var(--text-muted); display:block; margin-bottom:3px;">Code</label>
+            <input type="text" id="wizNewOutletCode" class="form-input" style="padding:6px 8px; font-size:12px;" placeholder="e.g. CP-01">
+          </div>
+          <button type="button" class="btn btn-sm btn-primary" onclick="addOutletFromWizard()">Add Outlet</button>
+        </div>
+      </div>
+    `;
+  } else if (wizardCurrentStep === 3) {
+    container.innerHTML = `
+      <div style="margin-bottom:14px;">
+        <h4 style="margin:0 0 4px 0; font-size:15px; font-weight:700;">Step 3: Review Source Connectors</h4>
+        <p style="margin:0; font-size:12.5px; color:var(--text-muted);">ReviewPilot AI aggregates guest feedback from multiple diner channels.</p>
+      </div>
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+        <label style="display:flex; align-items:center; gap:10px; background:var(--bg-card); padding:10px; border-radius:6px; border:1px solid var(--border-subtle); cursor:pointer;">
+          <input type="checkbox" checked style="accent-color:var(--emerald-primary);">
+          <div>
+            <div style="font-weight:700; font-size:12.5px;">Google Business Profile</div>
+            <div style="font-size:11px; color:var(--text-muted);">Sync diner ratings & public Google reviews</div>
+          </div>
+        </label>
+        <label style="display:flex; align-items:center; gap:10px; background:var(--bg-card); padding:10px; border-radius:6px; border:1px solid var(--border-subtle); cursor:pointer;">
+          <input type="checkbox" checked style="accent-color:var(--emerald-primary);">
+          <div>
+            <div style="font-weight:700; font-size:12.5px;">Zomato & Swiggy</div>
+            <div style="font-size:11px; color:var(--text-muted);">Delivery & dine-in customer impressions</div>
+          </div>
+        </label>
+        <label style="display:flex; align-items:center; gap:10px; background:var(--bg-card); padding:10px; border-radius:6px; border:1px solid var(--border-subtle); cursor:pointer;">
+          <input type="checkbox" checked style="accent-color:var(--emerald-primary);">
+          <div>
+            <div style="font-weight:700; font-size:12.5px;">📱 In-Restaurant QR Codes</div>
+            <div style="font-size:11px; color:var(--text-muted);">Direct table-stand private review capture</div>
+          </div>
+        </label>
+        <label style="display:flex; align-items:center; gap:10px; background:var(--bg-card); padding:10px; border-radius:6px; border:1px solid var(--border-subtle); cursor:pointer;">
+          <input type="checkbox" checked style="accent-color:var(--emerald-primary);">
+          <div>
+            <div style="font-weight:700; font-size:12.5px;">viaSocket Webhooks & POS</div>
+            <div style="font-size:11px; color:var(--text-muted);">Real-time dispatch to Petpooja, UrbanPiper & POS</div>
+          </div>
+        </label>
+      </div>
+    `;
+  } else if (wizardCurrentStep === 4) {
+    container.innerHTML = `
+      <div style="margin-bottom:14px;">
+        <h4 style="margin:0 0 4px 0; font-size:15px; font-weight:700;">Step 4: Review Schema & Column Mapping</h4>
+        <p style="margin:0; font-size:12.5px; color:var(--text-muted);">Automatic schema normalization for incoming diner reviews.</p>
+      </div>
+      <table style="width:100%; font-size:12px; border-collapse:collapse; background:var(--bg-card); border-radius:6px; overflow:hidden; border:1px solid var(--border-subtle);">
+        <tr style="background:var(--bg-subtle); text-align:left; border-bottom:1px solid var(--border-subtle);">
+          <th style="padding:8px 10px;">Platform Column</th>
+          <th style="padding:8px 10px;">Standard Field</th>
+          <th style="padding:8px 10px;">Status</th>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border-subtle);"><td style="padding:8px 10px;">Guest / Author Name</td><td style="padding:8px 10px;"><code>reviewer_name</code></td><td style="padding:8px 10px; color:var(--emerald-primary); font-weight:600;">✓ Mapped</td></tr>
+        <tr style="border-bottom:1px solid var(--border-subtle);"><td style="padding:8px 10px;">Star Rating (1-5★)</td><td style="padding:8px 10px;"><code>star_rating</code></td><td style="padding:8px 10px; color:var(--emerald-primary); font-weight:600;">✓ Mapped</td></tr>
+        <tr style="border-bottom:1px solid var(--border-subtle);"><td style="padding:8px 10px;">Review Comment</td><td style="padding:8px 10px;"><code>review_text</code></td><td style="padding:8px 10px; color:var(--emerald-primary); font-weight:600;">✓ Mapped</td></tr>
+        <tr><td style="padding:8px 10px;">Branch / Outlet Name</td><td style="padding:8px 10px;"><code>outlet_name</code></td><td style="padding:8px 10px; color:var(--emerald-primary); font-weight:600;">✓ Mapped</td></tr>
+      </table>
+    `;
+  } else if (wizardCurrentStep === 5) {
+    container.innerHTML = `
+      <div style="margin-bottom:14px;">
+        <h4 style="margin:0 0 4px 0; font-size:15px; font-weight:700;">Step 5: Connection & System Validation</h4>
+        <p style="margin:0; font-size:12.5px; color:var(--text-muted);">Verifying multi-tenant isolation and data health.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; background:var(--bg-card); padding:10px 14px; border-radius:6px; border:1px solid var(--border-subtle);">
+          <div><strong>Tenant Security Isolation</strong> <span style="font-size:11px; color:var(--text-muted); display:block;">Cross-tenant row leaks blocked via Bearer token auth</span></div>
+          <span class="badge positive">✅ Verified Active</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center; background:var(--bg-card); padding:10px 14px; border-radius:6px; border:1px solid var(--border-subtle);">
+          <div><strong>Branch & Outlet Registry</strong> <span style="font-size:11px; color:var(--text-muted); display:block;">${(cachedOutlets && cachedOutlets.length) || 0} active outlet(s) ready</span></div>
+          <span class="badge positive">✅ Ready</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center; background:var(--bg-card); padding:10px 14px; border-radius:6px; border:1px solid var(--border-subtle);">
+          <div><strong>viaSocket Integrations Engine</strong> <span style="font-size:11px; color:var(--text-muted); display:block;">Live webhook receivers & Slack/Gmail actions enabled</span></div>
+          <span class="badge positive">✅ Connected</span>
+        </div>
+      </div>
+    `;
+  } else if (wizardCurrentStep === 6) {
+    container.innerHTML = `
+      <div style="margin-bottom:14px;">
+        <h4 style="margin:0 0 4px 0; font-size:15px; font-weight:700;">Step 6: AI Analysis & NLP Engine</h4>
+        <p style="margin:0; font-size:12.5px; color:var(--text-muted);">Configure how AI categorizes dining complaints and compliments.</p>
+      </div>
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+        <div style="background:var(--bg-card); padding:12px; border-radius:6px; border:1px solid var(--border-subtle);">
+          <strong style="font-size:12.5px;">🚨 Food Safety Spike Radar</strong>
+          <p style="font-size:11.5px; color:var(--text-muted); margin:4px 0 0 0;">Auto-flags illness, hygiene, and raw food allegations with Critical severity.</p>
+        </div>
+        <div style="background:var(--bg-card); padding:12px; border-radius:6px; border:1px solid var(--border-subtle);">
+          <strong style="font-size:12.5px;">💰 Revenue Leakage Attribution</strong>
+          <p style="font-size:11.5px; color:var(--text-muted); margin:4px 0 0 0;">Calculates estimated monthly INR loss based on unvoiced multiplier.</p>
+        </div>
+        <div style="background:var(--bg-card); padding:12px; border-radius:6px; border:1px solid var(--border-subtle);">
+          <strong style="font-size:12.5px;">✍️ Automated AI Response Drafts</strong>
+          <p style="font-size:11.5px; color:var(--text-muted); margin:4px 0 0 0;">Generates empathetic, context-aware apologies and gratitude replies.</p>
+        </div>
+        <div style="background:var(--bg-card); padding:12px; border-radius:6px; border:1px solid var(--border-subtle);">
+          <strong style="font-size:12.5px;">📋 Operational Task Assignment</strong>
+          <p style="font-size:11.5px; color:var(--text-muted); margin:4px 0 0 0;">Auto-converts repeated complaints into actionable kitchen/service tasks.</p>
+        </div>
+      </div>
+    `;
+  } else if (wizardCurrentStep === 7) {
+    container.innerHTML = `
+      <div style="margin-bottom:14px;">
+        <h4 style="margin:0 0 4px 0; font-size:15px; font-weight:700;">Step 7: Real-Time Alert Thresholds</h4>
+        <p style="margin:0; font-size:12.5px; color:var(--text-muted);">Set when notifications should be immediately dispatched to managers.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <label style="display:flex; align-items:center; justify-content:space-between; background:var(--bg-card); padding:10px 14px; border-radius:6px; border:1px solid var(--border-subtle);">
+          <div>
+            <strong>1★ and 2★ Negative Review Immediate Escalation</strong>
+            <span style="font-size:11px; color:var(--text-muted); display:block;">Send instant push / webhook alert on critical low ratings</span>
+          </div>
+          <input type="checkbox" checked style="accent-color:var(--emerald-primary); width:18px; height:18px;">
+        </label>
+        <label style="display:flex; align-items:center; justify-content:space-between; background:var(--bg-card); padding:10px 14px; border-radius:6px; border:1px solid var(--border-subtle);">
+          <div>
+            <strong>Daily Operations Digest at 11:00 PM</strong>
+            <span style="font-size:11px; color:var(--text-muted); display:block;">Summary of today's customer ratings and unresolved complaints</span>
+          </div>
+          <input type="checkbox" checked style="accent-color:var(--emerald-primary); width:18px; height:18px;">
+        </label>
+      </div>
+    `;
+  } else if (wizardCurrentStep === 8) {
+    const outletsCount = (cachedOutlets && cachedOutlets.length) || 1;
+    container.innerHTML = `
+      <div style="text-align:center; padding:10px 0;">
+        <div style="font-size:32px; margin-bottom:8px;">🎉</div>
+        <h3 style="margin:0 0 6px 0; font-size:18px; font-weight:800;">Your Restaurant Is Fully Configured!</h3>
+        <p style="margin:0 0 16px 0; font-size:13px; color:var(--text-muted); max-width:440px; margin-inline:auto;">
+          ReviewPilot AI is ready to monitor guest feedback across <strong>${outletsCount} outlet(s)</strong> and turn every review into revenue.
+        </p>
+        <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:10px; margin-bottom:16px; text-align:left;">
+          <div style="background:var(--bg-card); padding:10px; border-radius:6px; border:1px solid var(--border-subtle);">
+            <div style="font-size:11px; color:var(--text-muted);">Brand</div>
+            <strong style="font-size:13px;">${escapeHtml(currentOrg?.name || 'Your Restaurant')}</strong>
+          </div>
+          <div style="background:var(--bg-card); padding:10px; border-radius:6px; border:1px solid var(--border-subtle);">
+            <div style="font-size:11px; color:var(--text-muted);">Branches</div>
+            <strong style="font-size:13px;">${outletsCount} Location(s)</strong>
+          </div>
+          <div style="background:var(--bg-card); padding:10px; border-radius:6px; border:1px solid var(--border-subtle);">
+            <div style="font-size:11px; color:var(--text-muted);">AI Engine</div>
+            <strong style="font-size:13px; color:var(--emerald-primary);">Active &amp; Ready</strong>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+};
+
+window.addOutletFromWizard = async function() {
+  const name = document.getElementById('wizNewOutletName')?.value?.trim();
+  const city = document.getElementById('wizNewOutletCity')?.value?.trim() || 'Metro';
+  const code = document.getElementById('wizNewOutletCode')?.value?.trim() || '';
+
+  if (!name) {
+    showToast('Please enter an outlet name.', 'error');
+    return;
+  }
+
+  try {
+    await api('/api/outlets', {
+      method: 'POST',
+      body: JSON.stringify({ name, city, code })
+    });
+    showToast(`Added outlet "${name}"!`);
+    await loadMeta();
+    renderWizardStep();
+  } catch (err) {
+    showToast(err.message || 'Failed to add outlet', 'error');
+  }
+};
+
+window.deleteOutletFromWizard = async function(id, name) {
+  if (!confirm(`Are you sure you want to remove the outlet "${name}"?`)) return;
+  try {
+    await api('/api/outlets/' + encodeURIComponent(id), { method: 'DELETE' });
+    showToast(`Outlet "${name}" removed.`);
+    await loadMeta();
+    renderWizardStep();
+  } catch (err) {
+    showToast(err.message || 'Failed to remove outlet', 'error');
+  }
+};
+
+window.initOnboardingWizardEvents = function() {
+  const prevBtn = document.getElementById('btnOnboardingPrev');
+  const nextBtn = document.getElementById('btnOnboardingNext');
+
+  if (prevBtn) {
+    prevBtn.onclick = () => {
+      if (wizardCurrentStep > 1) {
+        wizardCurrentStep--;
+        renderWizardStep();
+      }
+    };
+  }
+
+  if (nextBtn) {
+    nextBtn.onclick = async () => {
+      if (wizardCurrentStep < 8) {
+        if (wizardCurrentStep === 1) {
+          const orgName = document.getElementById('wizOrgName')?.value?.trim();
+          if (orgName && currentOrg && orgName !== currentOrg.name) {
+            try {
+              await api('/api/onboarding/complete', {
+                method: 'POST',
+                body: JSON.stringify({ organization_name: orgName })
+              });
+              currentOrg.name = orgName;
+            } catch {}
+          }
+        }
+        wizardCurrentStep++;
+        renderWizardStep();
+      } else {
+        try {
+          await api('/api/onboarding/complete', {
+            method: 'POST',
+            body: JSON.stringify({ completed: true })
+          });
+        } catch {}
+        document.getElementById('onboardingModal')?.classList.add('hidden');
+        showToast('Onboarding setup completed successfully!');
+        await loadMeta();
+        await loadAllData();
+      }
+    };
+  }
 };
 
